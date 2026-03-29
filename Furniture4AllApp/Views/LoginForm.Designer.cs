@@ -28,107 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.UsernameTextbox = new System.Windows.Forms.TextBox();
+            this.PasswordTextbox = new System.Windows.Forms.TextBox();
+            this.UsernameLabel = new System.Windows.Forms.Label();
+            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.ErrorLabel = new System.Windows.Forms.Label();
+            this.LoginLabel = new System.Windows.Forms.Label();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.BackgroundBox = new System.Windows.Forms.GroupBox();
+            this.BackgroundBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // UsernameTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(316, 163);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 20);
-            this.textBox1.TabIndex = 0;
+            this.UsernameTextbox.Location = new System.Drawing.Point(316, 163);
+            this.UsernameTextbox.Name = "UsernameTextbox";
+            this.UsernameTextbox.Size = new System.Drawing.Size(182, 20);
+            this.UsernameTextbox.TabIndex = 0;
             // 
-            // textBox2
+            // PasswordTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(316, 257);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 20);
-            this.textBox2.TabIndex = 1;
+            this.PasswordTextbox.Location = new System.Drawing.Point(316, 257);
+            this.PasswordTextbox.Name = "PasswordTextbox";
+            this.PasswordTextbox.Size = new System.Drawing.Size(182, 20);
+            this.PasswordTextbox.TabIndex = 1;
             // 
-            // label1
+            // UsernameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(313, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLabel.Location = new System.Drawing.Point(130, 114);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(68, 15);
+            this.UsernameLabel.TabIndex = 2;
+            this.UsernameLabel.Text = "Username:";
             // 
-            // label2
+            // PasswordLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(313, 241);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordLabel.Location = new System.Drawing.Point(130, 208);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(64, 15);
+            this.PasswordLabel.TabIndex = 3;
+            this.PasswordLabel.Text = "Password:";
             // 
-            // label3
+            // ErrorLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(379, 314);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
-            this.label3.Visible = false;
+            this.ErrorLabel.AutoSize = true;
+            this.ErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(122, 280);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(193, 16);
+            this.ErrorLabel.TabIndex = 4;
+            this.ErrorLabel.Text = "Invallid Username or Password";
+            this.ErrorLabel.Visible = false;
             // 
-            // label4
+            // LoginLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(97, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(266, 25);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Employee / Admin Login";
+            this.LoginLabel.AutoSize = true;
+            this.LoginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginLabel.Location = new System.Drawing.Point(97, 50);
+            this.LoginLabel.Name = "LoginLabel";
+            this.LoginLabel.Size = new System.Drawing.Size(266, 25);
+            this.LoginLabel.TabIndex = 5;
+            this.LoginLabel.Text = "Employee / Admin Login";
             // 
-            // button1
+            // LoginButton
             // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.ForeColor = System.Drawing.Color.Lavender;
-            this.button1.Location = new System.Drawing.Point(305, 330);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 52);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.LoginButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.ForeColor = System.Drawing.Color.Lavender;
+            this.LoginButton.Location = new System.Drawing.Point(305, 330);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(192, 52);
+            this.LoginButton.TabIndex = 6;
+            this.LoginButton.Text = "Login";
+            this.LoginButton.UseVisualStyleBackColor = false;
             // 
-            // groupBox1
+            // BackgroundBox
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(183, 31);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(454, 395);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
+            this.BackgroundBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackgroundBox.Controls.Add(this.LoginLabel);
+            this.BackgroundBox.Controls.Add(this.UsernameLabel);
+            this.BackgroundBox.Controls.Add(this.PasswordLabel);
+            this.BackgroundBox.Controls.Add(this.ErrorLabel);
+            this.BackgroundBox.Location = new System.Drawing.Point(183, 31);
+            this.BackgroundBox.Name = "BackgroundBox";
+            this.BackgroundBox.Size = new System.Drawing.Size(454, 395);
+            this.BackgroundBox.TabIndex = 7;
+            this.BackgroundBox.TabStop = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.PasswordTextbox);
+            this.Controls.Add(this.UsernameTextbox);
+            this.Controls.Add(this.BackgroundBox);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.BackgroundBox.ResumeLayout(false);
+            this.BackgroundBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,14 +140,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox UsernameTextbox;
+        private System.Windows.Forms.TextBox PasswordTextbox;
+        private System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.Label PasswordLabel;
+        private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.Label LoginLabel;
+        private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.GroupBox BackgroundBox;
     }
 }
 
