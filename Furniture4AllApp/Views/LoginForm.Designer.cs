@@ -50,6 +50,7 @@
             // 
             this.PasswordTextbox.Location = new System.Drawing.Point(316, 257);
             this.PasswordTextbox.Name = "PasswordTextbox";
+            this.PasswordTextbox.PasswordChar = '*';
             this.PasswordTextbox.Size = new System.Drawing.Size(182, 20);
             this.PasswordTextbox.TabIndex = 1;
             // 
@@ -106,6 +107,7 @@
             this.LoginButton.TabIndex = 6;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // BackgroundBox
             // 
