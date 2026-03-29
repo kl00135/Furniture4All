@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Furniture4AllApp.Models
+﻿namespace Furniture4AllApp.Models
 {
+    /// <summary>
+    /// An employee represents a user of the application who can log in and perform various actions based on their role (admin or regular employee). The Employee class contains properties for storing the employee's ID, username, password hash, first name, last name, and whether they have admin privileges.
+    /// </summary>
     public class Employee
     {
         public int EmployeeID { get; set; }
