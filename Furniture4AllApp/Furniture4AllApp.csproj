@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="DAL\DBHelper.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -86,7 +87,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="DB\" />
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ namespace Furniture4AllApp.DAL
     public class EmployeeDAL
     {
         private DBHelper dbHelper = new DBHelper();
-        public EmployeeDAL GetEmployee(string username, string password)
+        public Employee GetEmployee(string username, string password)
         {
             using (SqlConnection conn = dbHelper.GetConnection()) {
                 conn.Open();
@@ -25,7 +25,7 @@ namespace Furniture4AllApp.DAL
 
                 if (reader.Read())
                 {
-                    return new EmployeeDAL
+                    return new Employee
                     {
                         EmployeeID = (int)reader["employee_id"],
                         Username = reader["username"].ToString(),
