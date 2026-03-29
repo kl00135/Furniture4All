@@ -1,4 +1,7 @@
 ﻿For admins:
-User name:
+Username: admin
+Password:hashed_pass_2
 
-Password:
+For employees:
+Username:jdoe
+Password:hashed_pass_1
