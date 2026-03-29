@@ -31,7 +31,7 @@ namespace Furniture4AllApp
 
             if (emp != null)
             {
-                MainForm main = new MainForm();
+                MainForm main = new MainForm(emp);
                 main.Show();
                 this.Hide();
             }

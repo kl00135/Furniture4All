@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Furniture4AllApp.Models;
 
 namespace Furniture4AllApp.Views
 {
@@ -8,6 +9,13 @@ namespace Furniture4AllApp.Views
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class MainForm : Form
     {
+        private Employee currentUser;
+        public MainForm(Employee user)
+        {
+            InitializeComponent();
+            currentUser = user;
+            LoadUserInfo();
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
@@ -26,6 +34,23 @@ namespace Furniture4AllApp.Views
             LoginForm login = new LoginForm();
             login.Show();
             this.Close();
+        }
+
+        /// <summary>
+        /// Loads the user information.
+        /// </summary>
+        private void LoadUserInfo()
+        {
+            NameLabel.Text = currentUser.FirstName + " " + currentUser.LastName;
+
+            if (currentUser.IsAdmin)
+            {
+                RoleLabel.Text = "(Admin)";
+            }
+            else
+            {
+                RoleLabel.Text = "(Employee)";
+            }
         }
     }
 }
