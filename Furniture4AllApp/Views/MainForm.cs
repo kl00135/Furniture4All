@@ -52,5 +52,27 @@ namespace Furniture4AllApp.Views
                 RoleLabel.Text = "(Employee)";
             }
         }
+
+        /// <summary>
+        /// Handles the Click event of the RegisterMemberButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void RegisterMemberButton_Click(object sender, System.EventArgs e)
+        {
+            RegisterMemberForm RMForm = new RegisterMemberForm(currentUser);
+            RMForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the Click event of the SearchEditMemberButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void SearchEditMemberButton_Click(object sender, System.EventArgs e)
+        {
+            SearchEditMemberForm SEMForm = new SearchEditMemberForm(currentUser);
+            SEMForm.ShowDialog();
+        }
     }
 }

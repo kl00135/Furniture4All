@@ -148,6 +148,7 @@
             this.RegisterMemberButton.TabIndex = 7;
             this.RegisterMemberButton.Text = "Open";
             this.RegisterMemberButton.UseVisualStyleBackColor = false;
+            this.RegisterMemberButton.Click += new System.EventHandler(this.RegisterMemberButton_Click);
             // 
             // SearchEditMemberButton
             // 
@@ -159,6 +160,7 @@
             this.SearchEditMemberButton.TabIndex = 10;
             this.SearchEditMemberButton.Text = "Open";
             this.SearchEditMemberButton.UseVisualStyleBackColor = false;
+            this.SearchEditMemberButton.Click += new System.EventHandler(this.SearchEditMemberButton_Click);
             // 
             // SearchEditMemberLowerLabel
             // 

@@ -212,7 +212,7 @@ namespace Furniture4AllApp
                     lblStatus.Text = "Update failed. The member may have been deleted.";
                 }
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException ex) { 
 
                 lblStatus.ForeColor = Color.Red;
                 lblStatus.Text = ex.Message;
