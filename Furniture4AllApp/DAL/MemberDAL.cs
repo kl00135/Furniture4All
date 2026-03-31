@@ -34,11 +34,11 @@ namespace Furniture4AllApp.DAL
             {
                 conn.Open();
 
-                string query = @"INSET INTO Member
+                string query = @"INSERT INTO Member
                     (fname, lname, sex, date_of_birth, address, city, state, zip, phone)
                     VALUES
                     (@fname, @lname, @sex, @dob, @address, @city, @state, @zip, @phone);
-                    SelectionTypes SCOPE_IDENTITY();";
+                    SELECT SCOPE_IDENTITY();";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 

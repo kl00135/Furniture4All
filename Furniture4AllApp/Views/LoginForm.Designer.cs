@@ -83,7 +83,7 @@
             this.ErrorLabel.Name = "ErrorLabel";
             this.ErrorLabel.Size = new System.Drawing.Size(193, 16);
             this.ErrorLabel.TabIndex = 4;
-            this.ErrorLabel.Text = "Invallid Username or Password";
+            this.ErrorLabel.Text = "Invalid Username or Password";
             this.ErrorLabel.Visible = false;
             // 
             // LoginLabel
