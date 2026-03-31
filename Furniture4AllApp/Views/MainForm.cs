@@ -74,5 +74,16 @@ namespace Furniture4AllApp.Views
             SearchEditMemberForm SEMForm = new SearchEditMemberForm(currentUser);
             SEMForm.ShowDialog();
         }
+
+        /// <summary>
+        /// Handles the Click event of the SearchFurnitureButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void SearchFurnitureButton_Click(object sender, System.EventArgs e)
+        {
+            SearchFurnitureForm SFForm = new SearchFurnitureForm(currentUser);
+            SFForm.ShowDialog();
+        }
     }
 }

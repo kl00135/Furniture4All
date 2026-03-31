@@ -47,11 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\FurnitureController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="DAL\DBHelper.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
+    <Compile Include="DAL\FurnitureDAL.cs" />
     <Compile Include="DAL\MemberDAL.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Furniture.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
@@ -72,6 +75,12 @@
     </Compile>
     <Compile Include="Views\Registermemberform.designer.cs">
       <DependentUpon>Registermemberform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchFurnitureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SearchFurnitureForm.Designer.cs">
+      <DependentUpon>SearchFurnitureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Searcheditmemberform.designer.cs">
       <DependentUpon>Searcheditmemberform.cs</DependentUpon>

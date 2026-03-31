@@ -193,6 +193,7 @@
             this.SearhcFurnitureButton.TabIndex = 13;
             this.SearhcFurnitureButton.Text = "Open";
             this.SearhcFurnitureButton.UseVisualStyleBackColor = false;
+            this.SearhcFurnitureButton.Click += new System.EventHandler(this.SearchFurnitureButton_Click);
             // 
             // SearchFurnitureLowerLabel
             // 
