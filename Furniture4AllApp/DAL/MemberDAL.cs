@@ -6,10 +6,7 @@
 /// </summary>
 
 using System;
-using System.ComponentModel.Design;
 using System.Data.SqlClient;
-using System.Net.Mail;
-using System.Runtime.CompilerServices;
 using Furniture4AllApp.Models;
 
 namespace Furniture4AllApp.DAL

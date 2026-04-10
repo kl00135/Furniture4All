@@ -156,6 +156,13 @@ namespace Furniture4AllApp.Controllers
             return errors;
         }
 
+        /// <summary>
+        /// Determines whether value is all digits. Used for validating phone number.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>
+        ///   <c>true</c> if [is all digits] [the specified value]; otherwise, <c>false</c>.
+        /// </returns>
         private bool IsAllDigits(string value)
         {
             foreach (char c in value)

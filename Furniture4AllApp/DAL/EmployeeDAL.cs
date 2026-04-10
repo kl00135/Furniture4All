@@ -9,6 +9,13 @@ namespace Furniture4AllApp.DAL
     public class EmployeeDAL
     {
         private DBHelper dbHelper = new DBHelper();
+
+        /// <summary>
+        /// Gets the employee.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
         public Employee GetEmployee(string username, string password)
         {
             using (SqlConnection conn = dbHelper.GetConnection()) {
