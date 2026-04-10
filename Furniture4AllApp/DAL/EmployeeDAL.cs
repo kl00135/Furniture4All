@@ -20,7 +20,8 @@ namespace Furniture4AllApp.DAL
         {
             using (SqlConnection conn = dbHelper.GetConnection()) {
                 conn.Open();
-                string query = @"SELECT * FROM Employee Where 
+                string query = @"SELECT employee_id, fname, lname, username, is_admin
+                FROM Employee Where 
                 username = @username AND password_hash = @password";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
