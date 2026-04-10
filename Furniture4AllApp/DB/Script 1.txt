@@ -1,0 +1,128 @@
+CREATE DATABASE Furniture4All;
+GO
+
+USE Furniture4All;
+GO
+
+CREATE TABLE Category (
+    category_id INT PRIMARY KEY IDENTITY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Style (
+    style_id INT PRIMARY KEY IDENTITY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Employee (
+    employee_id INT PRIMARY KEY IDENTITY,
+    fname VARCHAR(50),
+    lname VARCHAR(50),
+    sex VARCHAR(10),
+    date_of_birth DATE,
+    address VARCHAR(100),
+    city VARCHAR(50),
+    state VARCHAR(2),
+    zip VARCHAR(10),
+    phone VARCHAR(10),
+    username VARCHAR(50) UNIQUE,
+    password_hash VARCHAR(100),
+    is_admin BIT
+);
+
+CREATE TABLE Member (
+    member_id INT PRIMARY KEY IDENTITY,
+    fname VARCHAR(50),
+    lname VARCHAR(50),
+    sex VARCHAR(10),
+    date_of_birth DATE,
+    address VARCHAR(100),
+    city VARCHAR(50),
+    state VARCHAR(2),
+    zip VARCHAR(10),
+    phone VARCHAR(10)
+);
+
+CREATE TABLE Furniture (
+    furniture_id INT PRIMARY KEY IDENTITY,
+    name VARCHAR(100),
+    description VARCHAR(255),
+    category_id INT,
+    style_id INT,
+    daily_rental_rate DECIMAL(10,2),
+    quantity INT,
+
+    FOREIGN KEY (category_id) REFERENCES Category(category_id),
+    FOREIGN KEY (style_id) REFERENCES Style(style_id)
+);
+
+CREATE TABLE RentalTransaction (
+    rental_transaction_id INT PRIMARY KEY IDENTITY,
+    member_id INT,
+    employee_id INT,
+    rental_date DATE,
+    due_date DATE,
+
+    FOREIGN KEY (member_id) REFERENCES Member(member_id),
+    FOREIGN KEY (employee_id) REFERENCES Employee(employee_id)
+);
+
+CREATE TABLE RentalLineItem (
+    rental_transaction_id INT,
+    furniture_id INT,
+    quantity INT,
+    quantity_returned INT DEFAULT 0,
+
+    PRIMARY KEY (rental_transaction_id, furniture_id),
+
+    FOREIGN KEY (rental_transaction_id) REFERENCES RentalTransaction(rental_transaction_id),
+    FOREIGN KEY (furniture_id) REFERENCES Furniture(furniture_id)
+);
+
+CREATE TABLE ReturnTransaction (
+    return_transaction_id INT PRIMARY KEY IDENTITY,
+    member_id INT,
+    employee_id INT,
+    return_date DATE,
+
+    FOREIGN KEY (member_id) REFERENCES Member(member_id),
+    FOREIGN KEY (employee_id) REFERENCES Employee(employee_id)
+);
+
+CREATE TABLE ReturnLineItem (
+    return_transaction_id INT,
+    rental_transaction_id INT,
+    furniture_id INT,
+    quantity INT,
+    fine DECIMAL(10,2),
+    refund DECIMAL(10,2),
+
+    PRIMARY KEY (return_transaction_id, rental_transaction_id, furniture_id),
+
+    FOREIGN KEY (return_transaction_id) REFERENCES ReturnTransaction(return_transaction_id),
+    FOREIGN KEY (rental_transaction_id, furniture_id)
+        REFERENCES RentalLineItem(rental_transaction_id, furniture_id)
+);
+
+INSERT INTO Category (name) VALUES ('Chair'), ('Table'), ('Sofa');
+INSERT INTO Style (name) VALUES ('Modern'), ('Classic'), ('Rustic');
+
+INSERT INTO Employee (fname, lname, sex, date_of_birth, address, city, state, zip, phone, username, password_hash, is_admin)
+VALUES 
+('John', 'Doe', 'M', '1985-05-15', '123 Mulbury St', 'Atlanta', 'GA', '62563', '4045554178', 'jdoe', 'hashed_pass_1', 0),
+('Admin', 'User', 'F', '1990-01-01', '5257 Main St.', 'Atlanta', 'GA', '54785', '4045554217', 'admin', 'hashed_pass_2', 1)
+
+INSERT INTO Member (fname, lname, sex, date_of_birth, address, city, state, zip, phone)
+VALUES 
+('Alice', 'Smith', 'F', '1992-03-12', '5321 SQL Ln', 'Nashville', 'TN', '62442', '4045556275'),
+('Bob', 'Robert', 'M', '1980-07-22', '312 Apartment Apt', 'Douglasville', 'GA', '63213', '4045555332'),
+('Mike', 'Schmidt', 'M', '1995-11-05', '8799 Elm St', 'Jacksonville', 'FL', '52432', '4045551267');
+
+
+INSERT INTO Furniture (name, description, category_id, style_id, daily_rental_rate, quantity)
+VALUES 
+('Office Chair', 'A basic office chair', 1, 1, 15.00, 10),
+('Dining Table', 'Polished oak dining table', 2, 2, 45.00, 5),
+('Modern Sofa', 'Grey sofa, sits three', 3, 1, 60.00, 3),
+('Rustic Coffee Table', 'Wooden small table', 2, 3, 25.00, 8),
+('Classic Armchair', 'Velvet printed armchair', 1, 2, 30.00, 4);
