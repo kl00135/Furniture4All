@@ -49,7 +49,6 @@ namespace Furniture4AllApp
             this.lblState = new System.Windows.Forms.Label();
             this.cmbState = new System.Windows.Forms.ComboBox();
             this.lblZip = new System.Windows.Forms.Label();
-            this.txtZip = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblNote = new System.Windows.Forms.Label();
@@ -57,6 +56,8 @@ namespace Furniture4AllApp
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.txtZip = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtZip)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAppTitle
@@ -65,7 +66,7 @@ namespace Furniture4AllApp
             this.lblAppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblAppTitle.Location = new System.Drawing.Point(12, 12);
             this.lblAppTitle.Name = "lblAppTitle";
-            this.lblAppTitle.Size = new System.Drawing.Size(325, 17);
+            this.lblAppTitle.Size = new System.Drawing.Size(292, 17);
             this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Furniture4All - Furniture Rental System";
             // 
@@ -85,7 +86,7 @@ namespace Furniture4AllApp
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(12, 50);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(210, 24);
+            this.lblTitle.Size = new System.Drawing.Size(203, 24);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Member Registration";
             // 
@@ -144,7 +145,7 @@ namespace Furniture4AllApp
             this.lblDOB.AutoSize = true;
             this.lblDOB.Location = new System.Drawing.Point(30, 213);
             this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(73, 13);
+            this.lblDOB.Size = new System.Drawing.Size(69, 13);
             this.lblDOB.TabIndex = 9;
             this.lblDOB.Text = "Date of Birth:";
             // 
@@ -211,17 +212,9 @@ namespace Furniture4AllApp
             this.lblZip.AutoSize = true;
             this.lblZip.Location = new System.Drawing.Point(30, 373);
             this.lblZip.Name = "lblZip";
-            this.lblZip.Size = new System.Drawing.Size(56, 13);
+            this.lblZip.Size = new System.Drawing.Size(55, 13);
             this.lblZip.TabIndex = 17;
             this.lblZip.Text = "ZIP Code:";
-            // 
-            // txtZip
-            // 
-            this.txtZip.Location = new System.Drawing.Point(160, 370);
-            this.txtZip.MaxLength = 10;
-            this.txtZip.Name = "txtZip";
-            this.txtZip.Size = new System.Drawing.Size(120, 20);
-            this.txtZip.TabIndex = 18;
             // 
             // lblPhone
             // 
@@ -247,7 +240,7 @@ namespace Furniture4AllApp
             this.lblNote.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblNote.Location = new System.Drawing.Point(30, 450);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(296, 13);
+            this.lblNote.Size = new System.Drawing.Size(254, 13);
             this.lblNote.TabIndex = 21;
             this.lblNote.Text = "* Member ID will be auto-generated upon registration";
             // 
@@ -287,13 +280,25 @@ namespace Furniture4AllApp
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(520, 40);
             this.lblStatus.TabIndex = 25;
-            this.lblStatus.Text = "";
+            // 
+            // txtZip
+            // 
+            this.txtZip.Location = new System.Drawing.Point(160, 371);
+            this.txtZip.Maximum = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            0});
+            this.txtZip.Name = "txtZip";
+            this.txtZip.Size = new System.Drawing.Size(120, 20);
+            this.txtZip.TabIndex = 26;
             // 
             // RegisterMemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 591);
+            this.Controls.Add(this.txtZip);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
@@ -301,7 +306,6 @@ namespace Furniture4AllApp
             this.Controls.Add(this.lblNote);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.txtZip);
             this.Controls.Add(this.lblZip);
             this.Controls.Add(this.cmbState);
             this.Controls.Add(this.lblState);
@@ -326,8 +330,10 @@ namespace Furniture4AllApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Furniture4All - Member Registration";
             this.Load += new System.EventHandler(this.RegisterMemberForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtZip)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -350,7 +356,6 @@ namespace Furniture4AllApp
         private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.ComboBox cmbState;
         private System.Windows.Forms.Label lblZip;
-        private System.Windows.Forms.TextBox txtZip;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lblNote;
@@ -358,5 +363,6 @@ namespace Furniture4AllApp
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.NumericUpDown txtZip;
     }
 }
