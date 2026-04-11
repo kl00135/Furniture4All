@@ -1,4 +1,11 @@
-﻿using Furniture4AllApp.Controllers;
+﻿///<summary>
+/// The point of this file is to allow users to log in to the application.
+///
+/// Author: Kade Levy
+/// Version: 4/11/2026
+/// </summary>
+
+using Furniture4AllApp.Controllers;
 using Furniture4AllApp.Views;
 using System.Windows.Forms;
 

@@ -1,4 +1,11 @@
-﻿using System.Windows.Forms;
+﻿///<summary>
+/// The point of this file is to display the main form that users will use to access the different features of the application. 
+///
+/// Author: Kade Levy
+/// Version: 4/11/2026
+/// </summary>
+
+using System.Windows.Forms;
 using Furniture4AllApp.Models;
 
 namespace Furniture4AllApp.Views

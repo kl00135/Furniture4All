@@ -1,4 +1,11 @@
-﻿namespace Furniture4AllApp
+﻿///<summary>
+/// The point of this file is display the login form.
+///
+/// Author: Kade Levy
+/// Version: 4/11/2026
+/// </summary>
+
+namespace Furniture4AllApp
 {
     partial class LoginForm
     {

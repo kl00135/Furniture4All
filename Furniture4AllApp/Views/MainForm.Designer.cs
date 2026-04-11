@@ -1,4 +1,10 @@
-﻿namespace Furniture4AllApp.Views
+﻿///<summary>
+/// The point of this file is to display the main form.
+///
+/// Author: Kade Levy
+/// Version: 4/11/2026
+/// </summary>
+namespace Furniture4AllApp.Views
 {
     partial class MainForm
     {

@@ -53,6 +53,7 @@
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="DAL\FurnitureDAL.cs" />
     <Compile Include="DAL\MemberDAL.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Furniture.cs" />
     <Compile Include="Models\Member.cs" />
@@ -75,6 +76,12 @@
     </Compile>
     <Compile Include="Views\Registermemberform.designer.cs">
       <DependentUpon>Registermemberform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RentalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RentalForm.Designer.cs">
+      <DependentUpon>RentalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchFurnitureForm.cs">
       <SubType>Form</SubType>
@@ -105,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Registermemberform.resx">
       <DependentUpon>Registermemberform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RentalForm.resx">
+      <DependentUpon>RentalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Searcheditmemberform.resx">
       <DependentUpon>Searcheditmemberform.cs</DependentUpon>
