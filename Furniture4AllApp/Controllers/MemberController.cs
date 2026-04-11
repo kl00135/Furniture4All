@@ -73,7 +73,7 @@ namespace Furniture4AllApp.Controllers
         /// </summary>
         /// <param name="phone">The 10-digit phone number.</param>
         /// <returns>Member if found, or null.</returns>
-        public Member GetMemberByPhone(string phone)
+        public List<Member> GetMemberByPhone(string phone)
         {
             return memberDAL.GetMemberByPhone(phone);
         }
@@ -84,7 +84,7 @@ namespace Furniture4AllApp.Controllers
         /// <param name="firstName">First name.</param>
         /// <param name="lastName">Last name.</param>
         /// <returns>Member if found, or null.</returns>
-        public Member GetMemberByName(string firstName, string lastName)
+        public List<Member> GetMemberByName(string firstName, string lastName)
         {
             return memberDAL.GetMemberByName(firstName, lastName);
         }

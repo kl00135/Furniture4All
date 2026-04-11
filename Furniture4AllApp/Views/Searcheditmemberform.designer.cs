@@ -33,6 +33,9 @@ namespace Furniture4AllApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.lblLoggedIn = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -68,7 +71,9 @@ namespace Furniture4AllApp
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.grpSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAppTitle
@@ -77,7 +82,7 @@ namespace Furniture4AllApp
             this.lblAppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblAppTitle.Location = new System.Drawing.Point(12, 12);
             this.lblAppTitle.Name = "lblAppTitle";
-            this.lblAppTitle.Size = new System.Drawing.Size(325, 17);
+            this.lblAppTitle.Size = new System.Drawing.Size(292, 17);
             this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Furniture4All - Furniture Rental System";
             // 
@@ -97,7 +102,7 @@ namespace Furniture4AllApp
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(12, 45);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(207, 24);
+            this.lblTitle.Size = new System.Drawing.Size(213, 24);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Search / Edit Member";
             // 
@@ -117,40 +122,23 @@ namespace Furniture4AllApp
             this.grpSearch.TabStop = false;
             this.grpSearch.Text = "Search Member";
             // 
-            // lblSearchBy
+            // btnSearch
             // 
-            this.lblSearchBy.AutoSize = true;
-            this.lblSearchBy.Location = new System.Drawing.Point(15, 30);
-            this.lblSearchBy.Name = "lblSearchBy";
-            this.lblSearchBy.Size = new System.Drawing.Size(59, 13);
-            this.lblSearchBy.TabIndex = 0;
-            this.lblSearchBy.Text = "Search by:";
+            this.btnSearch.Location = new System.Drawing.Point(480, 59);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(60, 25);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // cmbSearchBy
+            // txtSearchValue2
             // 
-            this.cmbSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSearchBy.FormattingEnabled = true;
-            this.cmbSearchBy.Location = new System.Drawing.Point(80, 27);
-            this.cmbSearchBy.Name = "cmbSearchBy";
-            this.cmbSearchBy.Size = new System.Drawing.Size(150, 21);
-            this.cmbSearchBy.TabIndex = 1;
-            this.cmbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cmbSearchBy_SelectedIndexChanged);
-            // 
-            // lblSearchValue
-            // 
-            this.lblSearchValue.AutoSize = true;
-            this.lblSearchValue.Location = new System.Drawing.Point(15, 65);
-            this.lblSearchValue.Name = "lblSearchValue";
-            this.lblSearchValue.Size = new System.Drawing.Size(74, 13);
-            this.lblSearchValue.TabIndex = 2;
-            this.lblSearchValue.Text = "Search Value:";
-            // 
-            // txtSearchValue
-            // 
-            this.txtSearchValue.Location = new System.Drawing.Point(105, 62);
-            this.txtSearchValue.Name = "txtSearchValue";
-            this.txtSearchValue.Size = new System.Drawing.Size(160, 20);
-            this.txtSearchValue.TabIndex = 3;
+            this.txtSearchValue2.Location = new System.Drawing.Point(348, 62);
+            this.txtSearchValue2.Name = "txtSearchValue2";
+            this.txtSearchValue2.Size = new System.Drawing.Size(120, 20);
+            this.txtSearchValue2.TabIndex = 5;
+            this.txtSearchValue2.Visible = false;
             // 
             // lblSearchValue2
             // 
@@ -162,38 +150,55 @@ namespace Furniture4AllApp
             this.lblSearchValue2.Text = "Last Name:";
             this.lblSearchValue2.Visible = false;
             // 
-            // txtSearchValue2
+            // txtSearchValue
             // 
-            this.txtSearchValue2.Location = new System.Drawing.Point(348, 62);
-            this.txtSearchValue2.Name = "txtSearchValue2";
-            this.txtSearchValue2.Size = new System.Drawing.Size(120, 20);
-            this.txtSearchValue2.TabIndex = 5;
-            this.txtSearchValue2.Visible = false;
+            this.txtSearchValue.Location = new System.Drawing.Point(105, 62);
+            this.txtSearchValue.Name = "txtSearchValue";
+            this.txtSearchValue.Size = new System.Drawing.Size(160, 20);
+            this.txtSearchValue.TabIndex = 3;
             // 
-            // btnSearch
+            // lblSearchValue
             // 
-            this.btnSearch.Location = new System.Drawing.Point(480, 59);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(60, 25);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.lblSearchValue.AutoSize = true;
+            this.lblSearchValue.Location = new System.Drawing.Point(15, 65);
+            this.lblSearchValue.Name = "lblSearchValue";
+            this.lblSearchValue.Size = new System.Drawing.Size(74, 13);
+            this.lblSearchValue.TabIndex = 2;
+            this.lblSearchValue.Text = "Search Value:";
+            // 
+            // cmbSearchBy
+            // 
+            this.cmbSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchBy.FormattingEnabled = true;
+            this.cmbSearchBy.Location = new System.Drawing.Point(80, 27);
+            this.cmbSearchBy.Name = "cmbSearchBy";
+            this.cmbSearchBy.Size = new System.Drawing.Size(150, 21);
+            this.cmbSearchBy.TabIndex = 1;
+            this.cmbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cmbSearchBy_SelectedIndexChanged);
+            // 
+            // lblSearchBy
+            // 
+            this.lblSearchBy.AutoSize = true;
+            this.lblSearchBy.Location = new System.Drawing.Point(15, 30);
+            this.lblSearchBy.Name = "lblSearchBy";
+            this.lblSearchBy.Size = new System.Drawing.Size(58, 13);
+            this.lblSearchBy.TabIndex = 0;
+            this.lblSearchBy.Text = "Search by:";
             // 
             // lblDetailsTitle
             // 
             this.lblDetailsTitle.AutoSize = true;
             this.lblDetailsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDetailsTitle.Location = new System.Drawing.Point(15, 195);
+            this.lblDetailsTitle.Location = new System.Drawing.Point(12, 281);
             this.lblDetailsTitle.Name = "lblDetailsTitle";
-            this.lblDetailsTitle.Size = new System.Drawing.Size(198, 17);
+            this.lblDetailsTitle.Size = new System.Drawing.Size(196, 17);
             this.lblDetailsTitle.TabIndex = 4;
             this.lblDetailsTitle.Text = "Member Details (Editable)";
             // 
             // lblMemberID
             // 
             this.lblMemberID.AutoSize = true;
-            this.lblMemberID.Location = new System.Drawing.Point(30, 228);
+            this.lblMemberID.Location = new System.Drawing.Point(27, 314);
             this.lblMemberID.Name = "lblMemberID";
             this.lblMemberID.Size = new System.Drawing.Size(62, 13);
             this.lblMemberID.TabIndex = 5;
@@ -202,7 +207,7 @@ namespace Furniture4AllApp
             // txtMemberID
             // 
             this.txtMemberID.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMemberID.Location = new System.Drawing.Point(160, 225);
+            this.txtMemberID.Location = new System.Drawing.Point(157, 311);
             this.txtMemberID.Name = "txtMemberID";
             this.txtMemberID.ReadOnly = true;
             this.txtMemberID.Size = new System.Drawing.Size(80, 20);
@@ -211,7 +216,7 @@ namespace Furniture4AllApp
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(30, 261);
+            this.lblFirstName.Location = new System.Drawing.Point(27, 347);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(60, 13);
             this.lblFirstName.TabIndex = 7;
@@ -219,7 +224,7 @@ namespace Furniture4AllApp
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(160, 258);
+            this.txtFirstName.Location = new System.Drawing.Point(157, 344);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(250, 20);
             this.txtFirstName.TabIndex = 8;
@@ -227,7 +232,7 @@ namespace Furniture4AllApp
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(30, 294);
+            this.lblLastName.Location = new System.Drawing.Point(27, 380);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(61, 13);
             this.lblLastName.TabIndex = 9;
@@ -235,7 +240,7 @@ namespace Furniture4AllApp
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(160, 291);
+            this.txtLastName.Location = new System.Drawing.Point(157, 377);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(250, 20);
             this.txtLastName.TabIndex = 10;
@@ -243,7 +248,7 @@ namespace Furniture4AllApp
             // lblSex
             // 
             this.lblSex.AutoSize = true;
-            this.lblSex.Location = new System.Drawing.Point(30, 327);
+            this.lblSex.Location = new System.Drawing.Point(27, 413);
             this.lblSex.Name = "lblSex";
             this.lblSex.Size = new System.Drawing.Size(28, 13);
             this.lblSex.TabIndex = 11;
@@ -253,7 +258,7 @@ namespace Furniture4AllApp
             // 
             this.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSex.FormattingEnabled = true;
-            this.cmbSex.Location = new System.Drawing.Point(160, 324);
+            this.cmbSex.Location = new System.Drawing.Point(157, 410);
             this.cmbSex.Name = "cmbSex";
             this.cmbSex.Size = new System.Drawing.Size(120, 21);
             this.cmbSex.TabIndex = 12;
@@ -261,16 +266,16 @@ namespace Furniture4AllApp
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
-            this.lblDOB.Location = new System.Drawing.Point(30, 362);
+            this.lblDOB.Location = new System.Drawing.Point(27, 448);
             this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(73, 13);
+            this.lblDOB.Size = new System.Drawing.Size(69, 13);
             this.lblDOB.TabIndex = 13;
             this.lblDOB.Text = "Date of Birth:";
             // 
             // dtpDOB
             // 
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(160, 359);
+            this.dtpDOB.Location = new System.Drawing.Point(157, 445);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(150, 20);
             this.dtpDOB.TabIndex = 14;
@@ -278,7 +283,7 @@ namespace Furniture4AllApp
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(30, 398);
+            this.lblAddress.Location = new System.Drawing.Point(27, 484);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(48, 13);
             this.lblAddress.TabIndex = 15;
@@ -286,7 +291,7 @@ namespace Furniture4AllApp
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(160, 395);
+            this.txtAddress.Location = new System.Drawing.Point(157, 481);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(250, 20);
             this.txtAddress.TabIndex = 16;
@@ -294,7 +299,7 @@ namespace Furniture4AllApp
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(30, 434);
+            this.lblCity.Location = new System.Drawing.Point(27, 520);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(27, 13);
             this.lblCity.TabIndex = 17;
@@ -302,7 +307,7 @@ namespace Furniture4AllApp
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(160, 431);
+            this.txtCity.Location = new System.Drawing.Point(157, 517);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(250, 20);
             this.txtCity.TabIndex = 18;
@@ -310,7 +315,7 @@ namespace Furniture4AllApp
             // lblState
             // 
             this.lblState.AutoSize = true;
-            this.lblState.Location = new System.Drawing.Point(30, 470);
+            this.lblState.Location = new System.Drawing.Point(27, 556);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(35, 13);
             this.lblState.TabIndex = 19;
@@ -320,7 +325,7 @@ namespace Furniture4AllApp
             // 
             this.cmbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbState.FormattingEnabled = true;
-            this.cmbState.Location = new System.Drawing.Point(160, 467);
+            this.cmbState.Location = new System.Drawing.Point(157, 553);
             this.cmbState.Name = "cmbState";
             this.cmbState.Size = new System.Drawing.Size(120, 21);
             this.cmbState.TabIndex = 20;
@@ -328,15 +333,15 @@ namespace Furniture4AllApp
             // lblZip
             // 
             this.lblZip.AutoSize = true;
-            this.lblZip.Location = new System.Drawing.Point(30, 506);
+            this.lblZip.Location = new System.Drawing.Point(27, 592);
             this.lblZip.Name = "lblZip";
-            this.lblZip.Size = new System.Drawing.Size(56, 13);
+            this.lblZip.Size = new System.Drawing.Size(55, 13);
             this.lblZip.TabIndex = 21;
             this.lblZip.Text = "ZIP Code:";
             // 
             // txtZip
             // 
-            this.txtZip.Location = new System.Drawing.Point(160, 503);
+            this.txtZip.Location = new System.Drawing.Point(157, 589);
             this.txtZip.MaxLength = 10;
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(120, 20);
@@ -345,7 +350,7 @@ namespace Furniture4AllApp
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(30, 542);
+            this.lblPhone.Location = new System.Drawing.Point(27, 628);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(41, 13);
             this.lblPhone.TabIndex = 23;
@@ -353,7 +358,7 @@ namespace Furniture4AllApp
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(160, 539);
+            this.txtPhone.Location = new System.Drawing.Point(157, 625);
             this.txtPhone.MaxLength = 10;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(150, 20);
@@ -361,7 +366,7 @@ namespace Furniture4AllApp
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(160, 580);
+            this.btnSave.Location = new System.Drawing.Point(351, 625);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 30);
             this.btnSave.TabIndex = 25;
@@ -371,7 +376,7 @@ namespace Furniture4AllApp
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(280, 580);
+            this.btnBack.Location = new System.Drawing.Point(471, 625);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(80, 30);
             this.btnBack.TabIndex = 26;
@@ -381,18 +386,53 @@ namespace Furniture4AllApp
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(30, 625);
+            this.lblStatus.Location = new System.Drawing.Point(30, 659);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(520, 40);
             this.lblStatus.TabIndex = 27;
-            this.lblStatus.Text = "";
+            // 
+            // dgvMembers
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMembers.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMembers.Location = new System.Drawing.Point(16, 187);
+            this.dgvMembers.MultiSelect = false;
+            this.dgvMembers.Name = "dgvMembers";
+            this.dgvMembers.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMembers.Size = new System.Drawing.Size(554, 91);
+            this.dgvMembers.TabIndex = 28;
+            this.dgvMembers.SelectionChanged += new System.EventHandler(this.dgvMembers_SelectionChanged);
             // 
             // SearchEditMemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 671);
-            this.Controls.Add(this.lblStatus);
+            this.ClientSize = new System.Drawing.Size(584, 708);
+            this.Controls.Add(this.dgvMembers);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPhone);
@@ -416,6 +456,7 @@ namespace Furniture4AllApp
             this.Controls.Add(this.txtMemberID);
             this.Controls.Add(this.lblMemberID);
             this.Controls.Add(this.lblDetailsTitle);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.grpSearch);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblLoggedIn);
@@ -428,8 +469,10 @@ namespace Furniture4AllApp
             this.Load += new System.EventHandler(this.SearchEditMemberForm_Load);
             this.grpSearch.ResumeLayout(false);
             this.grpSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -469,5 +512,6 @@ namespace Furniture4AllApp
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.DataGridView dgvMembers;
     }
 }

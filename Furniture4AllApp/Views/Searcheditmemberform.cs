@@ -5,11 +5,12 @@
 /// Version: 3/30/2026
 /// </summary>
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 using Furniture4AllApp.Controllers;
 using Furniture4AllApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Furniture4AllApp
 {
@@ -22,6 +23,7 @@ namespace Furniture4AllApp
         private MemberController memberController;
 
         private Member currentMember;
+        private List<Member> memberResults;
 
         /// <summary>
         /// This method initializes the form with the currently logged-in employee.
@@ -102,7 +104,9 @@ namespace Furniture4AllApp
         private void btnSearch_Click(object sender, EventArgs e)
         {
             lblStatus.Text = "";
-            Member member = null;
+            memberResults = new List<Member>();
+            dgvMembers.DataSource = null;
+            
 
             if (cmbSearchBy.SelectedItem == null) return;
             string searchType = cmbSearchBy.SelectedItem.ToString();
@@ -112,14 +116,17 @@ namespace Furniture4AllApp
                 if (searchType == "Member ID")
                 {
 
-                    int id;
-                    if (!int.TryParse(txtSearchValue.Text.Trim(), out id))
+                    if (int.TryParse(txtSearchValue.Text.Trim(), out int id))
+                    {
+                        Member m = memberController.GetMemberById(id);
+                        if (m != null) memberResults.Add(m);
+                    }
+                    else
                     {
                         lblStatus.ForeColor = Color.Red;
                         lblStatus.Text = "Please enter a valid numeric Member ID.";
                         return;
                     }
-                    member = memberController.GetMemberById(id);
                 }
                 else if (searchType == "Phone Number")
                 {
@@ -130,9 +137,10 @@ namespace Furniture4AllApp
                         lblStatus.Text = "Please enter a phone number.";
                         return;
                     }
-                    member = memberController.GetMemberByPhone(phone);
+                    var results = memberController.GetMemberByPhone(phone);
+                    if (results != null) memberResults.AddRange(results);
                 }
-                else 
+                else
                 {
                     string firstName = txtSearchValue.Text.Trim();
                     string lastName = txtSearchValue2.Text.Trim();
@@ -142,16 +150,17 @@ namespace Furniture4AllApp
                         lblStatus.Text = "Please enter both first and last name.";
                         return;
                     }
-                    member = memberController.GetMemberByName(firstName, lastName);
+                    var results = memberController.GetMemberByName(firstName, lastName);
+                    if (results != null) memberResults.AddRange(results);
                 }
 
-                if (member != null)
+                if (memberResults.Count > 0)
                 {
-                    currentMember = member;
-                    PopulateDetailFields(member);
-                    SetDetailFieldsEnabled(true);
+                    dgvMembers.DataSource = memberResults;
                     lblStatus.ForeColor = Color.Green;
-                    lblStatus.Text = $"Member found: {member.FirstName} {member.LastName} (ID: {member.MemberID})";
+                    lblStatus.Text = $"{memberResults.Count} member(s) found.";
+
+                    dgvMembers.Rows[0].Selected = true;
                 }
                 else
                 {
@@ -212,7 +221,8 @@ namespace Furniture4AllApp
                     lblStatus.Text = "Update failed. The member may have been deleted.";
                 }
             }
-            catch (ArgumentException ex) { 
+            catch (ArgumentException ex)
+            {
 
                 lblStatus.ForeColor = Color.Red;
                 lblStatus.Text = ex.Message;
@@ -286,6 +296,28 @@ namespace Furniture4AllApp
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        /// <summary>
+        /// Handles the SelectionChanged event of the dgvMembers control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void dgvMembers_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvMembers.SelectedRows.Count > 0)
+            {
+                Member selectedMember = (Member)dgvMembers.SelectedRows[0].DataBoundItem;
+                if (selectedMember != null)
+                {
+                    currentMember = selectedMember;
+                    PopulateDetailFields(selectedMember);
+                    SetDetailFieldsEnabled(true);
+                    lblStatus.ForeColor = Color.Green;
+                    lblStatus.Text = $"Member selected: {selectedMember.FirstName} {selectedMember.LastName} (ID: {selectedMember.MemberID})";
+                }
+            }
         }
     }
 }

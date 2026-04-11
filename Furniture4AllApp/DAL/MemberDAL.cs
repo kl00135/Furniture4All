@@ -5,9 +5,11 @@
 /// Version 3/30/2026
 /// </summary>
 
-using System;
-using System.Data.SqlClient;
 using Furniture4AllApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Furniture4AllApp.DAL
 {
@@ -84,24 +86,30 @@ namespace Furniture4AllApp.DAL
         /// </summary>
         /// <param name="phone">10-digit number to search for.</param>
         /// <returns>Member object if found, null if no match.</returns>
-        public Member GetMemberByPhone(string phone)
+        public List<Member> GetMemberByPhone(string phone)
         {
+            List<Member> members = new List<Member>();
+            // Explicitly selecting columns to minimize overhead
+            string query = "SELECT member_id, fname, lname, sex, date_of_birth, " +
+                "address, city, state, zip, phone " +
+                "FROM Member WHERE phone = @phone";
+
             using (SqlConnection conn = dbHelper.GetConnection())
             {
                 conn.Open();
-
-                string query = "SELECT * FROM Member WHERE phone = @phone";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@phone", phone);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    return BuildMember(reader);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            members.Add(BuildMember(reader));
+                        }
+                    }
                 }
             }
-            return null;
+            return members;
         }
 
         /// <summary>
@@ -110,25 +118,30 @@ namespace Furniture4AllApp.DAL
         /// <param name="firstName">First name</param>
         /// <param name="lastName">Last name.</param>
         /// <returns>Member if found, null if no match.</returns>
-        public Member GetMemberByName(string firstName, string lastName)
+        public List<Member> GetMemberByName(string firstName, string lastName)
         {
+            List<Member> members = new List<Member>();
+            string query = "SELECT member_id, fname, lname, sex, date_of_birth, " +
+                "address, city, state, zip, phone " +
+                "FROM Member WHERE fname = @fname AND lname = @lname";
+
             using (SqlConnection conn = dbHelper.GetConnection())
             {
                 conn.Open();
-
-                string query = "SELECT * FROM Member WHERE fname = @fname AND lname = @lname";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@fname", firstName);
-                cmd.Parameters.AddWithValue("@lname", lastName);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    return BuildMember(reader);
+                    cmd.Parameters.AddWithValue("@fname", firstName);
+                    cmd.Parameters.AddWithValue("@lname", lastName);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            members.Add(BuildMember(reader));
+                        }
+                    }
                 }
             }
-            return null;
+            return members;
         }
 
         /// <summary>
