@@ -33,6 +33,14 @@
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.FurnitureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Subtract = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,11 +86,77 @@
             // 
             // dgvCart
             // 
+            this.dgvCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(16, 124);
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FurnitureID,
+            this.Name,
+            this.DailyRate,
+            this.Quantity,
+            this.Subtotal,
+            this.Add,
+            this.Subtract,
+            this.Remove});
+            this.dgvCart.Location = new System.Drawing.Point(27, 124);
             this.dgvCart.Name = "dgvCart";
-            this.dgvCart.Size = new System.Drawing.Size(504, 165);
+            this.dgvCart.Size = new System.Drawing.Size(470, 165);
             this.dgvCart.TabIndex = 7;
+            // 
+            // FurnitureID
+            // 
+            this.FurnitureID.HeaderText = "FurnitureID";
+            this.FurnitureID.Name = "FurnitureID";
+            this.FurnitureID.ReadOnly = true;
+            this.FurnitureID.Width = 84;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            this.Name.Width = 60;
+            // 
+            // DailyRate
+            // 
+            this.DailyRate.HeaderText = "DailyRate";
+            this.DailyRate.Name = "DailyRate";
+            this.DailyRate.ReadOnly = true;
+            this.DailyRate.Width = 78;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 71;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            this.Subtotal.Width = 71;
+            // 
+            // Add
+            // 
+            this.Add.HeaderText = "+";
+            this.Add.Name = "Add";
+            this.Add.ReadOnly = true;
+            this.Add.Width = 21;
+            // 
+            // Subtract
+            // 
+            this.Subtract.HeaderText = "-";
+            this.Subtract.Name = "Subtract";
+            this.Subtract.ReadOnly = true;
+            this.Subtract.Width = 21;
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "X";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Width = 21;
             // 
             // RentalForm
             // 
@@ -109,5 +183,13 @@
         private System.Windows.Forms.Label lblAppTitle;
         private System.Windows.Forms.Label lblCart;
         private System.Windows.Forms.DataGridView dgvCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DailyRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
+        private System.Windows.Forms.DataGridViewButtonColumn Add;
+        private System.Windows.Forms.DataGridViewButtonColumn Subtract;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }
