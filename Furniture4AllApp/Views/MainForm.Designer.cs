@@ -232,6 +232,7 @@ namespace Furniture4AllApp.Views
             this.RentFurnitureButton.TabIndex = 16;
             this.RentFurnitureButton.Text = "Open";
             this.RentFurnitureButton.UseVisualStyleBackColor = false;
+            this.RentFurnitureButton.Click += new System.EventHandler(this.RentFurnitureButton_Click);
             // 
             // RentFurnitureLowerLabel
             // 

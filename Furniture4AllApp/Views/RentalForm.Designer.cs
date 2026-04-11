@@ -34,7 +34,7 @@
             this.lblCart = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.FurnitureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,7 +99,7 @@
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FurnitureID,
-            this.Name,
+            this.ColumnName,
             this.DailyRate,
             this.Quantity,
             this.Subtotal,
@@ -120,10 +120,10 @@
             // 
             // Name
             // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            this.Name.Width = 60;
+            this.ColumnName.HeaderText = "ColumnName";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            this.ColumnName.Width = 60;
             // 
             // DailyRate
             // 
@@ -230,6 +230,7 @@
             this.btnSubmit.TabIndex = 9;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnContinueShopping
             // 
@@ -242,6 +243,7 @@
             this.btnContinueShopping.TabIndex = 10;
             this.btnContinueShopping.Text = "Continue Shopping";
             this.btnContinueShopping.UseVisualStyleBackColor = false;
+            this.btnContinueShopping.Click += new System.EventHandler(this.btnContinueShopping_Click);
             // 
             // btnCancel
             // 
@@ -254,6 +256,7 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // RentalForm
             // 
@@ -287,7 +290,7 @@
         private System.Windows.Forms.Label lblCart;
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DailyRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;

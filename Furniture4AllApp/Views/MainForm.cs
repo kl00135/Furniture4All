@@ -92,5 +92,16 @@ namespace Furniture4AllApp.Views
             SearchFurnitureForm SFForm = new SearchFurnitureForm(currentUser);
             SFForm.ShowDialog();
         }
+
+        /// <summary>
+        /// Handles the Click event of the RentFurnitureButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void RentFurnitureButton_Click(object sender, System.EventArgs e)
+        {
+            RentalForm RFForm = new RentalForm(currentUser);
+            RFForm.ShowDialog();
+        }
     }
 }
