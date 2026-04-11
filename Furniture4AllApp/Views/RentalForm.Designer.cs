@@ -41,7 +41,16 @@
             this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Subtract = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.gbCart = new System.Windows.Forms.GroupBox();
+            this.rentalDueLabel = new System.Windows.Forms.Label();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
+            this.lblTotalCost = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnContinueShopping = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
+            this.gbCart.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -158,11 +167,103 @@
             this.Remove.ReadOnly = true;
             this.Remove.Width = 21;
             // 
+            // gbCart
+            // 
+            this.gbCart.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gbCart.Controls.Add(this.lblTotalCost);
+            this.gbCart.Controls.Add(this.dtpDueDate);
+            this.gbCart.Controls.Add(this.totalLabel);
+            this.gbCart.Controls.Add(this.rentalDueLabel);
+            this.gbCart.Location = new System.Drawing.Point(27, 295);
+            this.gbCart.Name = "gbCart";
+            this.gbCart.Size = new System.Drawing.Size(470, 127);
+            this.gbCart.TabIndex = 8;
+            this.gbCart.TabStop = false;
+            this.gbCart.Text = "Order Summary";
+            // 
+            // rentalDueLabel
+            // 
+            this.rentalDueLabel.AutoSize = true;
+            this.rentalDueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.rentalDueLabel.Location = new System.Drawing.Point(15, 25);
+            this.rentalDueLabel.Name = "rentalDueLabel";
+            this.rentalDueLabel.Size = new System.Drawing.Size(167, 24);
+            this.rentalDueLabel.TabIndex = 9;
+            this.rentalDueLabel.Text = "Rental Due Date:";
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.totalLabel.Location = new System.Drawing.Point(15, 72);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(115, 24);
+            this.totalLabel.TabIndex = 10;
+            this.totalLabel.Text = "Total Cost: ";
+            // 
+            // dtpDueDate
+            // 
+            this.dtpDueDate.Location = new System.Drawing.Point(188, 27);
+            this.dtpDueDate.Name = "dtpDueDate";
+            this.dtpDueDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpDueDate.TabIndex = 11;
+            // 
+            // lblTotalCost
+            // 
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTotalCost.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblTotalCost.Location = new System.Drawing.Point(136, 72);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(32, 24);
+            this.lblTotalCost.TabIndex = 12;
+            this.lblTotalCost.Text = "$0";
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.Green;
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(46, 428);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(111, 57);
+            this.btnSubmit.TabIndex = 9;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            // 
+            // btnContinueShopping
+            // 
+            this.btnContinueShopping.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnContinueShopping.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinueShopping.ForeColor = System.Drawing.Color.White;
+            this.btnContinueShopping.Location = new System.Drawing.Point(204, 428);
+            this.btnContinueShopping.Name = "btnContinueShopping";
+            this.btnContinueShopping.Size = new System.Drawing.Size(111, 57);
+            this.btnContinueShopping.TabIndex = 10;
+            this.btnContinueShopping.Text = "Continue Shopping";
+            this.btnContinueShopping.UseVisualStyleBackColor = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(351, 428);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(111, 57);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
             // RentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 528);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnContinueShopping);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.gbCart);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.lblCart);
             this.Controls.Add(this.lblTitle);
@@ -171,6 +272,8 @@
             this.Name = "RentalForm";
             this.Text = "RentalForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
+            this.gbCart.ResumeLayout(false);
+            this.gbCart.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,5 +294,13 @@
         private System.Windows.Forms.DataGridViewButtonColumn Add;
         private System.Windows.Forms.DataGridViewButtonColumn Subtract;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.GroupBox gbCart;
+        private System.Windows.Forms.DateTimePicker dtpDueDate;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label rentalDueLabel;
+        private System.Windows.Forms.Label lblTotalCost;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnContinueShopping;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
