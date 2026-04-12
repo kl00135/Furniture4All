@@ -49,14 +49,18 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\FurnitureController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="DAL\DBHelper.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="DAL\FurnitureDAL.cs" />
     <Compile Include="DAL\MemberDAL.cs" />
+    <Compile Include="DAL\RentalDAL.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Furniture.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Rentallineitem.cs" />
+    <Compile Include="Models\RentalTransaction.cs" />
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +75,7 @@
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReceiptForm.cs" />
     <Compile Include="Views\Registermemberform.cs">
       <SubType>Form</SubType>
     </Compile>
