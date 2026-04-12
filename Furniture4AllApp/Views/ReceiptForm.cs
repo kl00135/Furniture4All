@@ -1,8 +1,6 @@
-﻿/// <summary>
-/// This file will be the display for the receipt when the rental
-/// transaction is successfully submitted.
-/// You should be seeing the rental ID, member, employee, dates, line itmes,
-/// and total cost.
+﻿///<summary>
+/// Displays the receipt for a successfully submitted rental transaction.
+/// Shows the rental ID, member, employee, dates, line items, and total cost.
 ///
 /// Author: Laken Harville
 /// Version: 4/12/2026
@@ -15,16 +13,16 @@ using Furniture4AllApp.Models;
 namespace Furniture4AllApp.Views
 {
     /// <summary>
-    /// This class will give us the receipt that is only readable, not editable.
-    /// It should come out to look like a printable form.
+    /// Read-only form that displays a rental receipt after the transaction is saved.
+    /// Receives a fully populated RentalTransaction (including the new ID) and
+    /// displays it in a printable-looking format.
     /// </summary>
     public partial class ReceiptForm : Form
     {
         private RentalTransaction rental;
 
         /// <summary>
-        /// This method will initialize the receipt form with the rental transactions
-        /// displayed.
+        /// Initializes the receipt form with the rental transaction to display.
         /// </summary>
         /// <param name="rental">The completed rental with ID assigned.</param>
         public ReceiptForm(RentalTransaction rental)
@@ -34,7 +32,7 @@ namespace Furniture4AllApp.Views
         }
 
         /// <summary>
-        /// This method populates all the receipt fields when the form loads.
+        /// Populates all the receipt fields when the form loads.
         /// </summary>
         private void ReceiptForm_Load(object sender, EventArgs e)
         {
@@ -51,7 +49,7 @@ namespace Furniture4AllApp.Views
         }
 
         /// <summary>
-        /// This method will give us the read-only grid columns for the receipt's line items.
+        /// Sets up the read-only grid columns for the receipt's line items.
         /// </summary>
         private void SetupLineItemsGrid()
         {
@@ -72,7 +70,7 @@ namespace Furniture4AllApp.Views
         }
 
         /// <summary>
-        /// This method fills the grid from the rental's line items.
+        /// Fills the grid from the rental's line items.
         /// </summary>
         private void PopulateLineItems()
         {
@@ -90,8 +88,8 @@ namespace Furniture4AllApp.Views
         }
 
         /// <summary>
-        /// This method provides the action from clicking the close button thus
-        /// closing the receipt form.
+        /// Closes the receipt form, returning to the rental form which
+        /// has already been reset for the next transaction.
         /// </summary>
         private void btnClose_Click(object sender, EventArgs e)
         {

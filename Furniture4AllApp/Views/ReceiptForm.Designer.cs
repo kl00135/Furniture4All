@@ -8,7 +8,7 @@
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used please don't edit.
+        /// Clean up any resources being used.
         /// </summary>
         protected override void Dispose(bool disposing)
         {
