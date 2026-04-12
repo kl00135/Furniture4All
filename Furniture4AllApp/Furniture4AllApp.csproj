@@ -81,9 +81,6 @@
     <Compile Include="Views\ReceiptForm.Designer.cs">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReceiptForm.Designer.Designer.cs">
-      <DependentUpon>ReceiptForm.Designer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Registermemberform.cs">
       <SubType>Form</SubType>
     </Compile>
