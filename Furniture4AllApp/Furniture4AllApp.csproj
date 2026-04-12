@@ -75,7 +75,15 @@
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReceiptForm.cs" />
+    <Compile Include="Views\ReceiptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReceiptForm.Designer.cs">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiptForm.Designer.Designer.cs">
+      <DependentUpon>ReceiptForm.Designer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Registermemberform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,10 +145,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DB\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="DB\Script 1.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
