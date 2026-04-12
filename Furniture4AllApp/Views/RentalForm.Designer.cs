@@ -28,50 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblLoggedIn = new System.Windows.Forms.Label();
             this.lblAppTitle = new System.Windows.Forms.Label();
+            this.lblLoggedIn = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.gbMember = new System.Windows.Forms.GroupBox();
+            this.lblMemberInfo = new System.Windows.Forms.Label();
+            this.btnLookupMember = new System.Windows.Forms.Button();
+            this.txtMemberID = new System.Windows.Forms.TextBox();
+            this.lblMemberIdLabel = new System.Windows.Forms.Label();
+            this.lblEmployee = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.FurnitureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DailyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Subtract = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnAddFurniture = new System.Windows.Forms.Button();
             this.gbCart = new System.Windows.Forms.GroupBox();
-            this.rentalDueLabel = new System.Windows.Forms.Label();
-            this.totalLabel = new System.Windows.Forms.Label();
-            this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.lblTotalCost = new System.Windows.Forms.Label();
+            this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.rentalDueLabel = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnContinueShopping = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.gbMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.gbCart.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(12, 42);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(144, 24);
-            this.lblTitle.TabIndex = 5;
-            this.lblTitle.Text = "Rent Furniture";
-            // 
-            // lblLoggedIn
-            // 
-            this.lblLoggedIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLoggedIn.Location = new System.Drawing.Point(282, 26);
-            this.lblLoggedIn.Name = "lblLoggedIn";
-            this.lblLoggedIn.Size = new System.Drawing.Size(250, 17);
-            this.lblLoggedIn.TabIndex = 4;
-            this.lblLoggedIn.Text = "Logged in as:";
-            this.lblLoggedIn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblAppTitle
             // 
@@ -80,92 +60,119 @@
             this.lblAppTitle.Location = new System.Drawing.Point(12, 9);
             this.lblAppTitle.Name = "lblAppTitle";
             this.lblAppTitle.Size = new System.Drawing.Size(292, 17);
-            this.lblAppTitle.TabIndex = 3;
+            this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Furniture4All - Furniture Rental System";
+            // 
+            // lblLoggedIn
+            // 
+            this.lblLoggedIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLoggedIn.Location = new System.Drawing.Point(310, 9);
+            this.lblLoggedIn.Name = "lblLoggedIn";
+            this.lblLoggedIn.Size = new System.Drawing.Size(255, 17);
+            this.lblLoggedIn.TabIndex = 1;
+            this.lblLoggedIn.Text = "Logged in as:";
+            this.lblLoggedIn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(12, 35);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(144, 24);
+            this.lblTitle.TabIndex = 2;
+            this.lblTitle.Text = "Rent Furniture";
+            // 
+            // gbMember
+            // 
+            this.gbMember.Controls.Add(this.lblMemberInfo);
+            this.gbMember.Controls.Add(this.btnLookupMember);
+            this.gbMember.Controls.Add(this.txtMemberID);
+            this.gbMember.Controls.Add(this.lblMemberIdLabel);
+            this.gbMember.Location = new System.Drawing.Point(15, 70);
+            this.gbMember.Name = "gbMember";
+            this.gbMember.Size = new System.Drawing.Size(555, 90);
+            this.gbMember.TabIndex = 3;
+            this.gbMember.TabStop = false;
+            this.gbMember.Text = "Member Lookup";
+            // 
+            // lblMemberIdLabel
+            // 
+            this.lblMemberIdLabel.AutoSize = true;
+            this.lblMemberIdLabel.Location = new System.Drawing.Point(15, 28);
+            this.lblMemberIdLabel.Name = "lblMemberIdLabel";
+            this.lblMemberIdLabel.Size = new System.Drawing.Size(62, 13);
+            this.lblMemberIdLabel.TabIndex = 0;
+            this.lblMemberIdLabel.Text = "Member ID:";
+            // 
+            // txtMemberID
+            // 
+            this.txtMemberID.Location = new System.Drawing.Point(85, 25);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberID.TabIndex = 1;
+            // 
+            // btnLookupMember
+            // 
+            this.btnLookupMember.Location = new System.Drawing.Point(220, 22);
+            this.btnLookupMember.Name = "btnLookupMember";
+            this.btnLookupMember.Size = new System.Drawing.Size(75, 27);
+            this.btnLookupMember.TabIndex = 2;
+            this.btnLookupMember.Text = "Lookup";
+            this.btnLookupMember.UseVisualStyleBackColor = true;
+            this.btnLookupMember.Click += new System.EventHandler(this.btnLookupMember_Click);
+            // 
+            // lblMemberInfo
+            // 
+            this.lblMemberInfo.AutoSize = true;
+            this.lblMemberInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblMemberInfo.Location = new System.Drawing.Point(15, 60);
+            this.lblMemberInfo.Name = "lblMemberInfo";
+            this.lblMemberInfo.Size = new System.Drawing.Size(0, 15);
+            this.lblMemberInfo.TabIndex = 3;
+            this.lblMemberInfo.Text = "";
+            // 
+            // lblEmployee
+            // 
+            this.lblEmployee.AutoSize = true;
+            this.lblEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployee.Location = new System.Drawing.Point(15, 170);
+            this.lblEmployee.Name = "lblEmployee";
+            this.lblEmployee.Size = new System.Drawing.Size(67, 15);
+            this.lblEmployee.TabIndex = 4;
+            this.lblEmployee.Text = "Employee:";
             // 
             // lblCart
             // 
             this.lblCart.AutoSize = true;
             this.lblCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lblCart.Location = new System.Drawing.Point(11, 97);
+            this.lblCart.Location = new System.Drawing.Point(11, 195);
             this.lblCart.Name = "lblCart";
             this.lblCart.Size = new System.Drawing.Size(114, 24);
-            this.lblCart.TabIndex = 6;
+            this.lblCart.TabIndex = 5;
             this.lblCart.Text = "Cart Items: ";
             // 
             // dgvCart
             // 
-            this.dgvCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FurnitureID,
-            this.ColumnName,
-            this.DailyRate,
-            this.Quantity,
-            this.Subtotal,
-            this.Add,
-            this.Subtract,
-            this.Remove});
-            this.dgvCart.Location = new System.Drawing.Point(27, 124);
+            this.dgvCart.Location = new System.Drawing.Point(15, 222);
             this.dgvCart.Name = "dgvCart";
-            this.dgvCart.Size = new System.Drawing.Size(470, 165);
-            this.dgvCart.TabIndex = 7;
+            this.dgvCart.Size = new System.Drawing.Size(555, 150);
+            this.dgvCart.TabIndex = 6;
             // 
-            // FurnitureID
+            // btnAddFurniture
             // 
-            this.FurnitureID.HeaderText = "FurnitureID";
-            this.FurnitureID.Name = "FurnitureID";
-            this.FurnitureID.ReadOnly = true;
-            this.FurnitureID.Width = 84;
-            // 
-            // Name
-            // 
-            this.ColumnName.HeaderText = "ColumnName";
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.ReadOnly = true;
-            this.ColumnName.Width = 60;
-            // 
-            // DailyRate
-            // 
-            this.DailyRate.HeaderText = "DailyRate";
-            this.DailyRate.Name = "DailyRate";
-            this.DailyRate.ReadOnly = true;
-            this.DailyRate.Width = 78;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 71;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            this.Subtotal.Width = 71;
-            // 
-            // Add
-            // 
-            this.Add.HeaderText = "+";
-            this.Add.Name = "Add";
-            this.Add.ReadOnly = true;
-            this.Add.Width = 21;
-            // 
-            // Subtract
-            // 
-            this.Subtract.HeaderText = "-";
-            this.Subtract.Name = "Subtract";
-            this.Subtract.ReadOnly = true;
-            this.Subtract.Width = 21;
-            // 
-            // Remove
-            // 
-            this.Remove.HeaderText = "X";
-            this.Remove.Name = "Remove";
-            this.Remove.ReadOnly = true;
-            this.Remove.Width = 21;
+            this.btnAddFurniture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnAddFurniture.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAddFurniture.ForeColor = System.Drawing.Color.White;
+            this.btnAddFurniture.Location = new System.Drawing.Point(15, 380);
+            this.btnAddFurniture.Name = "btnAddFurniture";
+            this.btnAddFurniture.Size = new System.Drawing.Size(150, 32);
+            this.btnAddFurniture.TabIndex = 7;
+            this.btnAddFurniture.Text = "Add Furniture...";
+            this.btnAddFurniture.UseVisualStyleBackColor = false;
+            this.btnAddFurniture.Click += new System.EventHandler(this.btnAddFurniture_Click);
             // 
             // gbCart
             // 
@@ -174,9 +181,9 @@
             this.gbCart.Controls.Add(this.dtpDueDate);
             this.gbCart.Controls.Add(this.totalLabel);
             this.gbCart.Controls.Add(this.rentalDueLabel);
-            this.gbCart.Location = new System.Drawing.Point(27, 295);
+            this.gbCart.Location = new System.Drawing.Point(15, 425);
             this.gbCart.Name = "gbCart";
-            this.gbCart.Size = new System.Drawing.Size(470, 127);
+            this.gbCart.Size = new System.Drawing.Size(555, 110);
             this.gbCart.TabIndex = 8;
             this.gbCart.TabStop = false;
             this.gbCart.Text = "Order Summary";
@@ -184,126 +191,129 @@
             // rentalDueLabel
             // 
             this.rentalDueLabel.AutoSize = true;
-            this.rentalDueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.rentalDueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.rentalDueLabel.Location = new System.Drawing.Point(15, 25);
             this.rentalDueLabel.Name = "rentalDueLabel";
-            this.rentalDueLabel.Size = new System.Drawing.Size(167, 24);
-            this.rentalDueLabel.TabIndex = 9;
+            this.rentalDueLabel.Size = new System.Drawing.Size(141, 20);
+            this.rentalDueLabel.TabIndex = 0;
             this.rentalDueLabel.Text = "Rental Due Date:";
+            // 
+            // dtpDueDate
+            // 
+            this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDueDate.Location = new System.Drawing.Point(170, 27);
+            this.dtpDueDate.Name = "dtpDueDate";
+            this.dtpDueDate.Size = new System.Drawing.Size(150, 20);
+            this.dtpDueDate.TabIndex = 1;
             // 
             // totalLabel
             // 
             this.totalLabel.AutoSize = true;
-            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.totalLabel.Location = new System.Drawing.Point(15, 72);
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.totalLabel.Location = new System.Drawing.Point(15, 65);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(115, 24);
-            this.totalLabel.TabIndex = 10;
-            this.totalLabel.Text = "Total Cost: ";
-            // 
-            // dtpDueDate
-            // 
-            this.dtpDueDate.Location = new System.Drawing.Point(188, 27);
-            this.dtpDueDate.Name = "dtpDueDate";
-            this.dtpDueDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpDueDate.TabIndex = 11;
+            this.totalLabel.Size = new System.Drawing.Size(155, 20);
+            this.totalLabel.TabIndex = 2;
+            this.totalLabel.Text = "Total Daily Cost: ";
             // 
             // lblTotalCost
             // 
             this.lblTotalCost.AutoSize = true;
-            this.lblTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotalCost.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblTotalCost.Location = new System.Drawing.Point(136, 72);
+            this.lblTotalCost.Location = new System.Drawing.Point(180, 65);
             this.lblTotalCost.Name = "lblTotalCost";
-            this.lblTotalCost.Size = new System.Drawing.Size(32, 24);
-            this.lblTotalCost.TabIndex = 12;
-            this.lblTotalCost.Text = "$0";
+            this.lblTotalCost.Size = new System.Drawing.Size(46, 20);
+            this.lblTotalCost.TabIndex = 3;
+            this.lblTotalCost.Text = "$0.00";
             // 
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.Green;
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(46, 428);
+            this.btnSubmit.Location = new System.Drawing.Point(125, 555);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(111, 57);
+            this.btnSubmit.Size = new System.Drawing.Size(160, 45);
             this.btnSubmit.TabIndex = 9;
-            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.Text = "Submit Rental";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnContinueShopping
-            // 
-            this.btnContinueShopping.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnContinueShopping.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinueShopping.ForeColor = System.Drawing.Color.White;
-            this.btnContinueShopping.Location = new System.Drawing.Point(204, 428);
-            this.btnContinueShopping.Name = "btnContinueShopping";
-            this.btnContinueShopping.Size = new System.Drawing.Size(111, 57);
-            this.btnContinueShopping.TabIndex = 10;
-            this.btnContinueShopping.Text = "Continue Shopping";
-            this.btnContinueShopping.UseVisualStyleBackColor = false;
-            this.btnContinueShopping.Click += new System.EventHandler(this.btnContinueShopping_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(351, 428);
+            this.btnCancel.Location = new System.Drawing.Point(310, 555);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(111, 57);
-            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Size = new System.Drawing.Size(160, 45);
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Location = new System.Drawing.Point(15, 615);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(555, 35);
+            this.lblStatus.TabIndex = 11;
+            this.lblStatus.Text = "";
             // 
             // RentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 528);
+            this.ClientSize = new System.Drawing.Size(584, 660);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnContinueShopping);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.gbCart);
+            this.Controls.Add(this.btnAddFurniture);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.lblCart);
+            this.Controls.Add(this.lblEmployee);
+            this.Controls.Add(this.gbMember);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblLoggedIn);
             this.Controls.Add(this.lblAppTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RentalForm";
-            this.Text = "RentalForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Furniture4All - Rent Furniture";
+            this.Load += new System.EventHandler(this.RentalForm_Load);
+            this.gbMember.ResumeLayout(false);
+            this.gbMember.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.gbCart.ResumeLayout(false);
             this.gbCart.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblLoggedIn;
         private System.Windows.Forms.Label lblAppTitle;
+        private System.Windows.Forms.Label lblLoggedIn;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.GroupBox gbMember;
+        private System.Windows.Forms.Label lblMemberInfo;
+        private System.Windows.Forms.Button btnLookupMember;
+        private System.Windows.Forms.TextBox txtMemberID;
+        private System.Windows.Forms.Label lblMemberIdLabel;
+        private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.Label lblCart;
         private System.Windows.Forms.DataGridView dgvCart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DailyRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
-        private System.Windows.Forms.DataGridViewButtonColumn Add;
-        private System.Windows.Forms.DataGridViewButtonColumn Subtract;
-        private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.Button btnAddFurniture;
         private System.Windows.Forms.GroupBox gbCart;
+        private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label rentalDueLabel;
-        private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Button btnContinueShopping;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

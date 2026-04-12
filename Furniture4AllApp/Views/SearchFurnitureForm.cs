@@ -3,6 +3,9 @@
 ///
 /// Author: Anu Rayini
 /// Version: 3/30/2026
+/// Modified by Laken Harville: I added a constructor overload that will accept
+/// a cart reference and an "Add to cart" button column that will only show in rental mode.
+/// Version: 4/12/2026
 /// </summary>
 
 using System;
@@ -22,6 +25,8 @@ namespace Furniture4AllApp
     {
         private Employee loggedInEmployee;
         private FurnitureController furnitureController;
+        private List<CartItem> cart;
+        private bool isInRentalMode;
 
         /// <summary>
         /// This method initializes the form with the currently logged-in employee.
@@ -32,6 +37,16 @@ namespace Furniture4AllApp
             InitializeComponent();
             this.loggedInEmployee = employee;
             this.furnitureController = new FurnitureController();
+            this.isInRentalMode = false;
+        }
+
+        /// <summary>
+        /// This method will be our rental mode constructor.
+        /// </summary>
+        public SearchFurnitureForm(Employee employee, List<CartItem> cart) : this(employee)
+        {
+            this.cart = cart;
+            this.isInRentalMode = true;
         }
 
         /// <summary>
@@ -134,6 +149,61 @@ namespace Furniture4AllApp
                 DataPropertyName = "Quantity",
                 Width = 50
             });
+
+            if (isInRentalMode)
+            {
+                DataGridViewButtonColumn addCol = new DataGridViewButtonColumn();
+                addCol.Name = "AddToCart";
+                addCol.HeaderText = "";
+                addCol.Text = "Add to Cart";
+                addCol.UseColumnTextForButtonValue = true;
+                addCol.Width = 100;
+                dgvResults.Columns.Add(addCol);
+                dgvResults.CellClick += dgvResults_CellClick;
+            }
+        }
+
+        /// <summary>
+        /// This method will handle clicks in the results grid. It will only work
+        /// on the Add to Cart button in rental mode.
+        /// </summary>
+        private void dgvResults_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!isInRentalMode) return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (dgvResults.Columns[e.ColumnIndex].Name != "AddToCart") return;
+
+            object idValue = dgvResults.Rows[e.RowIndex].Cells["FurnitureID"].Value;
+            if (idValue == null) return;
+            int furnitureId = Convert.ToInt32(idValue);
+
+            Furniture item = furnitureController.GetFurnitureById(furnitureId);
+            if (item == null)
+            {
+                lblStatus.ForeColor = Color.Red;
+                lblStatus.Text = "Could not retrieve furniture details.";
+                return;
+            }
+
+            CartItem existing = cart.Find(cartItem => cartItem.FurnitureId == furnitureId);
+            if (existing != null)
+            {
+                existing.Quantity++;
+                lblStatus.ForeColor = Color.Green;
+                lblStatus.Text = $"Increased quantity for {item.Name} (now {existing.Quantity}).";
+            }
+            else
+            {
+                cart.Add(new CartItem
+                {
+                    FurnitureId = item.FurnitureID,
+                    Name = item.Name,
+                    DailyRate = item.DailyRentalRate,
+                    Quantity = 1
+                });
+                lblStatus.ForeColor = Color.Green;
+                lblStatus.Text = $"Added {item.Name} to cart.";
+            }
         }
 
         /// <summary>
