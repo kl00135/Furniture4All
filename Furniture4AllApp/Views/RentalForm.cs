@@ -51,7 +51,7 @@ namespace Furniture4AllApp.Views
         private void RentalForm_Load(object sender, EventArgs e)
         {
             string role = loggedInEmployee.IsAdmin ? "Admin" : "Employee";
-            lblLoggedIn.Text = $"Logged in as: {loggedInEmployee.FirstName} {loggedInEmployee.LaseName} ({role})";
+            lblLoggedIn.Text = $"Logged in as: {loggedInEmployee.FirstName} {loggedInEmployee.LastName} ({role})";
 
             lblEmployee.Text = $"Employee: {loggedInEmployee.FirstName} {loggedInEmployee.LastName} (ID: {loggedInEmployee.EmployeeID})";
 
@@ -68,11 +68,11 @@ namespace Furniture4AllApp.Views
         /// </summary>
         private void btnLookupMember_Click(object sender, EventArgs e)
         {
-            int memberid;
+            int memberId;
             if (!int.TryParse(txtMemberID.Text.Trim(), out memberId))
             {
                 lblMemberInfo.ForeColor = Color.Red;
-                lblMemberInfo.Text = "Please enter a valid numberic Member ID.";
+                lblMemberInfo.Text = "Please enter a valid numeric Member ID.";
                 currentMember = null;
                 return;
             }
