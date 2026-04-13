@@ -1,4 +1,10 @@
-﻿namespace Furniture4AllApp.Views
+﻿/// <summary>
+/// Designer view of the rental form.
+/// 
+/// Author: Kade Levy
+/// Version: 4/13/2026
+/// </summary>
+namespace Furniture4AllApp.Views
 {
     partial class RentalForm
     {

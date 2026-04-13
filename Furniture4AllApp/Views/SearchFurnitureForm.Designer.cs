@@ -53,19 +53,19 @@ namespace Furniture4AllApp
             this.grpSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // lblAppTitle
-            //
+            // 
             this.lblAppTitle.AutoSize = true;
             this.lblAppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblAppTitle.Location = new System.Drawing.Point(12, 12);
             this.lblAppTitle.Name = "lblAppTitle";
-            this.lblAppTitle.Size = new System.Drawing.Size(325, 17);
+            this.lblAppTitle.Size = new System.Drawing.Size(292, 17);
             this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Furniture4All - Furniture Rental System";
-            //
+            // 
             // lblLoggedIn
-            //
+            // 
             this.lblLoggedIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLoggedIn.Location = new System.Drawing.Point(390, 14);
             this.lblLoggedIn.Name = "lblLoggedIn";
@@ -73,19 +73,19 @@ namespace Furniture4AllApp
             this.lblLoggedIn.TabIndex = 1;
             this.lblLoggedIn.Text = "Logged in as:";
             this.lblLoggedIn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            //
+            // 
             // lblTitle
-            //
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(12, 45);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(173, 24);
+            this.lblTitle.Size = new System.Drawing.Size(167, 24);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Search Furniture";
-            //
+            // 
             // grpSearch
-            //
+            // 
             this.grpSearch.Controls.Add(this.btnSearch);
             this.grpSearch.Controls.Add(this.cmbStyle);
             this.grpSearch.Controls.Add(this.lblStyle);
@@ -101,84 +101,9 @@ namespace Furniture4AllApp
             this.grpSearch.TabIndex = 3;
             this.grpSearch.TabStop = false;
             this.grpSearch.Text = "Search Furniture";
-            //
-            // lblSearchBy
-            //
-            this.lblSearchBy.AutoSize = true;
-            this.lblSearchBy.Location = new System.Drawing.Point(15, 30);
-            this.lblSearchBy.Name = "lblSearchBy";
-            this.lblSearchBy.Size = new System.Drawing.Size(59, 13);
-            this.lblSearchBy.TabIndex = 0;
-            this.lblSearchBy.Text = "Search by:";
-            //
-            // cmbSearchBy
-            //
-            this.cmbSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSearchBy.FormattingEnabled = true;
-            this.cmbSearchBy.Location = new System.Drawing.Point(80, 27);
-            this.cmbSearchBy.Name = "cmbSearchBy";
-            this.cmbSearchBy.Size = new System.Drawing.Size(150, 21);
-            this.cmbSearchBy.TabIndex = 1;
-            this.cmbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cmbSearchBy_SelectedIndexChanged);
-            //
-            // lblSearchValue
-            //
-            this.lblSearchValue.AutoSize = true;
-            this.lblSearchValue.Location = new System.Drawing.Point(15, 65);
-            this.lblSearchValue.Name = "lblSearchValue";
-            this.lblSearchValue.Size = new System.Drawing.Size(70, 13);
-            this.lblSearchValue.TabIndex = 2;
-            this.lblSearchValue.Text = "Furniture ID:";
-            //
-            // txtSearchValue
-            //
-            this.txtSearchValue.Location = new System.Drawing.Point(105, 62);
-            this.txtSearchValue.Name = "txtSearchValue";
-            this.txtSearchValue.Size = new System.Drawing.Size(160, 20);
-            this.txtSearchValue.TabIndex = 3;
-            //
-            // lblCategory
-            //
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(15, 65);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(52, 13);
-            this.lblCategory.TabIndex = 4;
-            this.lblCategory.Text = "Category:";
-            this.lblCategory.Visible = false;
-            //
-            // cmbCategory
-            //
-            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(105, 62);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(160, 21);
-            this.cmbCategory.TabIndex = 5;
-            this.cmbCategory.Visible = false;
-            //
-            // lblStyle
-            //
-            this.lblStyle.AutoSize = true;
-            this.lblStyle.Location = new System.Drawing.Point(15, 65);
-            this.lblStyle.Name = "lblStyle";
-            this.lblStyle.Size = new System.Drawing.Size(33, 13);
-            this.lblStyle.TabIndex = 6;
-            this.lblStyle.Text = "Style:";
-            this.lblStyle.Visible = false;
-            //
-            // cmbStyle
-            //
-            this.cmbStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStyle.FormattingEnabled = true;
-            this.cmbStyle.Location = new System.Drawing.Point(105, 62);
-            this.cmbStyle.Name = "cmbStyle";
-            this.cmbStyle.Size = new System.Drawing.Size(160, 21);
-            this.cmbStyle.TabIndex = 7;
-            this.cmbStyle.Visible = false;
-            //
+            // 
             // btnSearch
-            //
+            // 
             this.btnSearch.Location = new System.Drawing.Point(580, 59);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(60, 25);
@@ -186,21 +111,97 @@ namespace Furniture4AllApp
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            //
+            // 
+            // cmbStyle
+            // 
+            this.cmbStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStyle.FormattingEnabled = true;
+            this.cmbStyle.Location = new System.Drawing.Point(105, 62);
+            this.cmbStyle.Name = "cmbStyle";
+            this.cmbStyle.Size = new System.Drawing.Size(160, 21);
+            this.cmbStyle.TabIndex = 7;
+            this.cmbStyle.Visible = false;
+            // 
+            // lblStyle
+            // 
+            this.lblStyle.AutoSize = true;
+            this.lblStyle.Location = new System.Drawing.Point(15, 65);
+            this.lblStyle.Name = "lblStyle";
+            this.lblStyle.Size = new System.Drawing.Size(33, 13);
+            this.lblStyle.TabIndex = 6;
+            this.lblStyle.Text = "Style:";
+            this.lblStyle.Visible = false;
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(105, 62);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(160, 21);
+            this.cmbCategory.TabIndex = 5;
+            this.cmbCategory.Visible = false;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(15, 65);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(52, 13);
+            this.lblCategory.TabIndex = 4;
+            this.lblCategory.Text = "Category:";
+            this.lblCategory.Visible = false;
+            // 
+            // txtSearchValue
+            // 
+            this.txtSearchValue.Location = new System.Drawing.Point(105, 62);
+            this.txtSearchValue.Name = "txtSearchValue";
+            this.txtSearchValue.Size = new System.Drawing.Size(160, 20);
+            this.txtSearchValue.TabIndex = 3;
+            // 
+            // lblSearchValue
+            // 
+            this.lblSearchValue.AutoSize = true;
+            this.lblSearchValue.Location = new System.Drawing.Point(15, 65);
+            this.lblSearchValue.Name = "lblSearchValue";
+            this.lblSearchValue.Size = new System.Drawing.Size(65, 13);
+            this.lblSearchValue.TabIndex = 2;
+            this.lblSearchValue.Text = "Furniture ID:";
+            // 
+            // cmbSearchBy
+            // 
+            this.cmbSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchBy.FormattingEnabled = true;
+            this.cmbSearchBy.Location = new System.Drawing.Point(80, 27);
+            this.cmbSearchBy.Name = "cmbSearchBy";
+            this.cmbSearchBy.Size = new System.Drawing.Size(150, 21);
+            this.cmbSearchBy.TabIndex = 1;
+            this.cmbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cmbSearchBy_SelectedIndexChanged);
+            // 
+            // lblSearchBy
+            // 
+            this.lblSearchBy.AutoSize = true;
+            this.lblSearchBy.Location = new System.Drawing.Point(15, 30);
+            this.lblSearchBy.Name = "lblSearchBy";
+            this.lblSearchBy.Size = new System.Drawing.Size(58, 13);
+            this.lblSearchBy.TabIndex = 0;
+            this.lblSearchBy.Text = "Search by:";
+            // 
             // lblResultsTitle
-            //
+            // 
             this.lblResultsTitle.AutoSize = true;
             this.lblResultsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblResultsTitle.Location = new System.Drawing.Point(15, 195);
             this.lblResultsTitle.Name = "lblResultsTitle";
-            this.lblResultsTitle.Size = new System.Drawing.Size(125, 17);
+            this.lblResultsTitle.Size = new System.Drawing.Size(118, 17);
             this.lblResultsTitle.TabIndex = 4;
             this.lblResultsTitle.Text = "Search Results";
-            //
+            // 
             // dgvResults
-            //
+            // 
             this.dgvResults.AllowUserToAddRows = false;
             this.dgvResults.AllowUserToDeleteRows = false;
+            this.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResults.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResults.Location = new System.Drawing.Point(15, 220);
@@ -209,9 +210,9 @@ namespace Furniture4AllApp
             this.dgvResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResults.Size = new System.Drawing.Size(655, 220);
             this.dgvResults.TabIndex = 5;
-            //
+            // 
             // btnBack
-            //
+            // 
             this.btnBack.Location = new System.Drawing.Point(15, 460);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(80, 30);
@@ -219,17 +220,16 @@ namespace Furniture4AllApp
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            //
+            // 
             // lblStatus
-            //
+            // 
             this.lblStatus.Location = new System.Drawing.Point(15, 500);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(655, 40);
             this.lblStatus.TabIndex = 7;
-            this.lblStatus.Text = "";
-            //
+            // 
             // SearchFurnitureForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 541);
@@ -252,6 +252,7 @@ namespace Furniture4AllApp
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

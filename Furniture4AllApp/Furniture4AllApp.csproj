@@ -132,6 +132,9 @@
     <EmbeddedResource Include="Views\Searcheditmemberform.resx">
       <DependentUpon>Searcheditmemberform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SearchFurnitureForm.resx">
+      <DependentUpon>SearchFurnitureForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
