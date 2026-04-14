@@ -297,6 +297,7 @@ namespace Furniture4AllApp.Views
             this.RentalReturnHistoryButton.TabIndex = 22;
             this.RentalReturnHistoryButton.Text = "Open";
             this.RentalReturnHistoryButton.UseVisualStyleBackColor = false;
+            this.RentalReturnHistoryButton.Click += new System.EventHandler(this.RentalReturnHistoryButton_Click);
             // 
             // RentalReturnLowerLabel
             // 

@@ -7,6 +7,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using Furniture4AllApp.Models;
 
@@ -73,6 +74,83 @@ namespace Furniture4AllApp.DAL
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// This method will retrieve all rental transactions for a given member.
+        /// Each transaction includes its line items with furniture names and daily rates.
+        /// </summary>
+        /// <param name="memberId">The member ID to look up.</param>
+        /// <returns>A list of RentalTransaction objects with their line items.</returns>
+        public List<RentalTransaction> GetRentalsByMemberId(int memberId)
+        {
+            List<RentalTransaction> rentals = new List<RentalTransaction>();
+
+            using (SqlConnection conn = dbHelper.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"SELECT rt.rental_transaction_id, rt.member_id, rt.employee_id,
+                        rt.rental_date, rt.due_date,
+                        m.fname + ' ' + m.lname AS member_name,
+                        e.fname + ' ' + e.lname AS employee_name
+                    FROM RentalTransaction rt
+                    JOIN Member m ON rt.member_id = m.member_id
+                    JOIN Employee e ON rt.employee_id = e.employee_id
+                    WHERE rt.member_id = @member_id
+                    ORDER BY rt.rental_date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@member_id", memberId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    RentalTransaction rental = new RentalTransaction
+                    {
+                        RentalTransactionID = (int)reader["rental_transaction_id"],
+                        MemberID = (int)reader["member_id"],
+                        MemberName = reader["member_name"].ToString(),
+                        EmployeeID = (int)reader["employee_id"],
+                        EmployeeName = reader["employee_name"].ToString(),
+                        RentalDate = (DateTime)reader["rental_date"],
+                        DueDate = (DateTime)reader["due_date"]
+                    };
+                    rentals.Add(rental);
+                }
+                reader.Close();
+
+                foreach (RentalTransaction rental in rentals)
+                {
+                    string lineQuery = @"SELECT rli.furniture_id, f.name AS furniture_name,
+                            rli.quantity, rli.quantity_returned, f.daily_rental_rate
+                        FROM RentalLineItem rli
+                        JOIN Furniture f ON rli.furniture_id = f.furniture_id
+                        WHERE rli.rental_transaction_id = @rental_id";
+
+                    SqlCommand lineCmd = new SqlCommand(lineQuery, conn);
+                    lineCmd.Parameters.AddWithValue("@rental_id", rental.RentalTransactionID);
+
+                    SqlDataReader lineReader = lineCmd.ExecuteReader();
+
+                    while (lineReader.Read())
+                    {
+                        rental.LineItems.Add(new RentalLineItem
+                        {
+                            RentalTransactionID = rental.RentalTransactionID,
+                            FurnitureID = (int)lineReader["furniture_id"],
+                            FurnitureName = lineReader["furniture_name"].ToString(),
+                            Quantity = (int)lineReader["quantity"],
+                            QuantityReturned = (int)lineReader["quantity_returned"],
+                            DailyRate = (decimal)lineReader["daily_rental_rate"]
+                        });
+                    }
+                    lineReader.Close();
+                }
+            }
+
+            return rentals;
         }
     }
 }

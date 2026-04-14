@@ -103,5 +103,16 @@ namespace Furniture4AllApp.Views
             RentalForm RFForm = new RentalForm(currentUser);
             RFForm.ShowDialog();
         }
+
+        /// <summary>
+        /// Handles the Click event of the RentalReturnHistoryButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void RentalReturnHistoryButton_Click(object sender, System.EventArgs e)
+        {
+            RentalHistoryForm RHForm = new RentalHistoryForm(currentUser);
+            RHForm.ShowDialog();
+        }
     }
 }

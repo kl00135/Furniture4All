@@ -38,6 +38,16 @@ namespace Furniture4AllApp.Controllers
         }
 
         /// <summary>
+        /// This method will retrieve all rental transactions for a given member.
+        /// </summary>
+        /// <param name="memberId">The member ID to look up.</param>
+        /// <returns>A list of RentalTransaction objects with line items.</returns>
+        public List<RentalTransaction> GetRentalsByMemberId(int memberId)
+        {
+            return rentalDAL.GetRentalsByMemberId(memberId);
+        }
+
+        /// <summary>
         /// This method will run all the validation checks on the rental transaction.
         /// It will return a list of error messages. An empty list means success.
         /// </summary>
