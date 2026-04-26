@@ -119,6 +119,16 @@ namespace Furniture4AllApp.Views
         }
 
         /// <summary>
+        /// Gets the number of rental days based on the due date.
+        /// Ensures at least 1 day is returned.
+        /// </summary>
+        private int GetRentalDays()
+        {
+            int days = (dtpDueDate.Value.Date - DateTime.Today).Days;
+            return days <= 0 ? 1 : days;
+        }
+
+        /// <summary>
         /// Setups the cart grid.
         /// </summary>
         private void SetupCartGrid()
@@ -215,7 +225,7 @@ namespace Furniture4AllApp.Views
                     item.Name,
                     item.DailyRate.ToString("C2"),
                     item.Quantity,
-                    item.Subtotal.ToString("C2")
+                    (item.DailyRate * item.Quantity * GetRentalDays()).ToString("C2")
                 );
             }
 
@@ -228,7 +238,8 @@ namespace Furniture4AllApp.Views
         /// </summary>
         private void UpdateTotal()
         {
-            decimal total = cartItems.Sum(i => i.Subtotal);
+            int days = GetRentalDays();
+            decimal total = cartItems.Sum(i => i.DailyRate * i.Quantity * days);
             lblTotalCost.Text = total.ToString("C2");
         }
 

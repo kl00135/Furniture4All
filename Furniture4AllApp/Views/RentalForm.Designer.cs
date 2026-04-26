@@ -102,21 +102,14 @@ namespace Furniture4AllApp.Views
             this.gbMember.TabStop = false;
             this.gbMember.Text = "Member Lookup";
             // 
-            // lblMemberIdLabel
+            // lblMemberInfo
             // 
-            this.lblMemberIdLabel.AutoSize = true;
-            this.lblMemberIdLabel.Location = new System.Drawing.Point(15, 28);
-            this.lblMemberIdLabel.Name = "lblMemberIdLabel";
-            this.lblMemberIdLabel.Size = new System.Drawing.Size(62, 13);
-            this.lblMemberIdLabel.TabIndex = 0;
-            this.lblMemberIdLabel.Text = "Member ID:";
-            // 
-            // txtMemberID
-            // 
-            this.txtMemberID.Location = new System.Drawing.Point(85, 25);
-            this.txtMemberID.Name = "txtMemberID";
-            this.txtMemberID.Size = new System.Drawing.Size(120, 20);
-            this.txtMemberID.TabIndex = 1;
+            this.lblMemberInfo.AutoSize = true;
+            this.lblMemberInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblMemberInfo.Location = new System.Drawing.Point(15, 60);
+            this.lblMemberInfo.Name = "lblMemberInfo";
+            this.lblMemberInfo.Size = new System.Drawing.Size(0, 15);
+            this.lblMemberInfo.TabIndex = 3;
             // 
             // btnLookupMember
             // 
@@ -128,15 +121,21 @@ namespace Furniture4AllApp.Views
             this.btnLookupMember.UseVisualStyleBackColor = true;
             this.btnLookupMember.Click += new System.EventHandler(this.btnLookupMember_Click);
             // 
-            // lblMemberInfo
+            // txtMemberID
             // 
-            this.lblMemberInfo.AutoSize = true;
-            this.lblMemberInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblMemberInfo.Location = new System.Drawing.Point(15, 60);
-            this.lblMemberInfo.Name = "lblMemberInfo";
-            this.lblMemberInfo.Size = new System.Drawing.Size(0, 15);
-            this.lblMemberInfo.TabIndex = 3;
-            this.lblMemberInfo.Text = "";
+            this.txtMemberID.Location = new System.Drawing.Point(85, 25);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberID.TabIndex = 1;
+            // 
+            // lblMemberIdLabel
+            // 
+            this.lblMemberIdLabel.AutoSize = true;
+            this.lblMemberIdLabel.Location = new System.Drawing.Point(15, 28);
+            this.lblMemberIdLabel.Name = "lblMemberIdLabel";
+            this.lblMemberIdLabel.Size = new System.Drawing.Size(62, 13);
+            this.lblMemberIdLabel.TabIndex = 0;
+            this.lblMemberIdLabel.Text = "Member ID:";
             // 
             // lblEmployee
             // 
@@ -144,7 +143,7 @@ namespace Furniture4AllApp.Views
             this.lblEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployee.Location = new System.Drawing.Point(15, 170);
             this.lblEmployee.Name = "lblEmployee";
-            this.lblEmployee.Size = new System.Drawing.Size(67, 15);
+            this.lblEmployee.Size = new System.Drawing.Size(74, 15);
             this.lblEmployee.TabIndex = 4;
             this.lblEmployee.Text = "Employee:";
             // 
@@ -194,15 +193,16 @@ namespace Furniture4AllApp.Views
             this.gbCart.TabStop = false;
             this.gbCart.Text = "Order Summary";
             // 
-            // rentalDueLabel
+            // lblTotalCost
             // 
-            this.rentalDueLabel.AutoSize = true;
-            this.rentalDueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.rentalDueLabel.Location = new System.Drawing.Point(15, 25);
-            this.rentalDueLabel.Name = "rentalDueLabel";
-            this.rentalDueLabel.Size = new System.Drawing.Size(141, 20);
-            this.rentalDueLabel.TabIndex = 0;
-            this.rentalDueLabel.Text = "Rental Due Date:";
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTotalCost.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblTotalCost.Location = new System.Drawing.Point(180, 65);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(54, 20);
+            this.lblTotalCost.TabIndex = 3;
+            this.lblTotalCost.Text = "$0.00";
             // 
             // dtpDueDate
             // 
@@ -218,20 +218,19 @@ namespace Furniture4AllApp.Views
             this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.totalLabel.Location = new System.Drawing.Point(15, 65);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(155, 20);
+            this.totalLabel.Size = new System.Drawing.Size(101, 20);
             this.totalLabel.TabIndex = 2;
-            this.totalLabel.Text = "Total Daily Cost: ";
+            this.totalLabel.Text = "Total Cost: ";
             // 
-            // lblTotalCost
+            // rentalDueLabel
             // 
-            this.lblTotalCost.AutoSize = true;
-            this.lblTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTotalCost.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblTotalCost.Location = new System.Drawing.Point(180, 65);
-            this.lblTotalCost.Name = "lblTotalCost";
-            this.lblTotalCost.Size = new System.Drawing.Size(46, 20);
-            this.lblTotalCost.TabIndex = 3;
-            this.lblTotalCost.Text = "$0.00";
+            this.rentalDueLabel.AutoSize = true;
+            this.rentalDueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.rentalDueLabel.Location = new System.Drawing.Point(15, 25);
+            this.rentalDueLabel.Name = "rentalDueLabel";
+            this.rentalDueLabel.Size = new System.Drawing.Size(149, 20);
+            this.rentalDueLabel.TabIndex = 0;
+            this.rentalDueLabel.Text = "Rental Due Date:";
             // 
             // btnSubmit
             // 
@@ -265,7 +264,6 @@ namespace Furniture4AllApp.Views
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(555, 35);
             this.lblStatus.TabIndex = 11;
-            this.lblStatus.Text = "";
             // 
             // RentalForm
             // 
@@ -297,6 +295,7 @@ namespace Furniture4AllApp.Views
             this.gbCart.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
