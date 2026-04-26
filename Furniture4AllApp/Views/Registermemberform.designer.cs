@@ -56,8 +56,7 @@ namespace Furniture4AllApp
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.txtZip = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.txtZip)).BeginInit();
+            this.txtZip = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblAppTitle
@@ -283,14 +282,9 @@ namespace Furniture4AllApp
             // 
             // txtZip
             // 
-            this.txtZip.Location = new System.Drawing.Point(160, 371);
-            this.txtZip.Maximum = new decimal(new int[] {
-            1215752191,
-            23,
-            0,
-            0});
+            this.txtZip.Location = new System.Drawing.Point(160, 373);
             this.txtZip.Name = "txtZip";
-            this.txtZip.Size = new System.Drawing.Size(120, 20);
+            this.txtZip.Size = new System.Drawing.Size(107, 20);
             this.txtZip.TabIndex = 26;
             // 
             // RegisterMemberForm
@@ -330,7 +324,6 @@ namespace Furniture4AllApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Furniture4All - Member Registration";
             this.Load += new System.EventHandler(this.RegisterMemberForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtZip)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,6 +356,6 @@ namespace Furniture4AllApp
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.NumericUpDown txtZip;
+        private System.Windows.Forms.TextBox txtZip;
     }
 }

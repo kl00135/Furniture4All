@@ -144,6 +144,11 @@ namespace Furniture4AllApp.Controllers
                 errors.Add("ZIP code is required.");
             }
 
+            if (member.Zip.Length != 5 || !IsAllDigits(member.Zip))
+            {
+                errors.Add("ZIP code must be exactly 5 digits and numeric.");
+            }
+
             if (string.IsNullOrWhiteSpace(member.Phone))
             {
                 errors.Add("Phone number is required.");

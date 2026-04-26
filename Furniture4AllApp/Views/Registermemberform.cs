@@ -108,7 +108,7 @@ namespace Furniture4AllApp
             txtAddress.Clear();
             txtCity.Clear();
             cmbState.SelectedIndex = -1;
-            txtZip.Value = 0;
+            txtZip.Clear();
             txtPhone.Clear();
             lblStatus.Text = "";
         }
