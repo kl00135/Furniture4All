@@ -229,6 +229,13 @@ namespace Furniture4AllApp.Views
                 );
             }
 
+            //Code is here to fix flickering effect when refreshing
+            int selectedRow = dgvCart.CurrentCell?.RowIndex ?? -1;
+            if (selectedRow >= 0 && selectedRow < dgvCart.Rows.Count)
+            {
+                dgvCart.Rows[selectedRow].Selected = true;
+            }
+
             UpdateTotal();
         }
 
