@@ -240,7 +240,9 @@ namespace Furniture4AllApp.Views
         {
             int days = GetRentalDays();
             decimal total = cartItems.Sum(i => i.DailyRate * i.Quantity * days);
+            decimal dailyTotal = cartItems.Sum(i => i.DailyRate * i.Quantity);
             lblTotalCost.Text = total.ToString("C2");
+            lblDailyTotal.Text = $"{dailyTotal:C2}";
         }
 
         /// <summary>

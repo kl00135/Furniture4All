@@ -54,6 +54,8 @@ namespace Furniture4AllApp.Views
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.lblDailyTotal = new System.Windows.Forms.Label();
+            this.totalDailyLabel = new System.Windows.Forms.Label();
             this.gbMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.gbCart.SuspendLayout();
@@ -182,13 +184,15 @@ namespace Furniture4AllApp.Views
             // gbCart
             // 
             this.gbCart.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gbCart.Controls.Add(this.lblDailyTotal);
+            this.gbCart.Controls.Add(this.totalDailyLabel);
             this.gbCart.Controls.Add(this.lblTotalCost);
             this.gbCart.Controls.Add(this.dtpDueDate);
             this.gbCart.Controls.Add(this.totalLabel);
             this.gbCart.Controls.Add(this.rentalDueLabel);
             this.gbCart.Location = new System.Drawing.Point(15, 425);
             this.gbCart.Name = "gbCart";
-            this.gbCart.Size = new System.Drawing.Size(555, 110);
+            this.gbCart.Size = new System.Drawing.Size(555, 136);
             this.gbCart.TabIndex = 8;
             this.gbCart.TabStop = false;
             this.gbCart.Text = "Order Summary";
@@ -198,7 +202,7 @@ namespace Furniture4AllApp.Views
             this.lblTotalCost.AutoSize = true;
             this.lblTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotalCost.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblTotalCost.Location = new System.Drawing.Point(180, 65);
+            this.lblTotalCost.Location = new System.Drawing.Point(181, 98);
             this.lblTotalCost.Name = "lblTotalCost";
             this.lblTotalCost.Size = new System.Drawing.Size(54, 20);
             this.lblTotalCost.TabIndex = 3;
@@ -216,7 +220,7 @@ namespace Furniture4AllApp.Views
             // 
             this.totalLabel.AutoSize = true;
             this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.totalLabel.Location = new System.Drawing.Point(15, 65);
+            this.totalLabel.Location = new System.Drawing.Point(16, 98);
             this.totalLabel.Name = "totalLabel";
             this.totalLabel.Size = new System.Drawing.Size(101, 20);
             this.totalLabel.TabIndex = 2;
@@ -237,7 +241,7 @@ namespace Furniture4AllApp.Views
             this.btnSubmit.BackColor = System.Drawing.Color.Green;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(125, 555);
+            this.btnSubmit.Location = new System.Drawing.Point(128, 567);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(160, 45);
             this.btnSubmit.TabIndex = 9;
@@ -250,7 +254,7 @@ namespace Furniture4AllApp.Views
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(310, 555);
+            this.btnCancel.Location = new System.Drawing.Point(313, 567);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(160, 45);
             this.btnCancel.TabIndex = 10;
@@ -264,6 +268,27 @@ namespace Furniture4AllApp.Views
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(555, 35);
             this.lblStatus.TabIndex = 11;
+            // 
+            // lblDailyTotal
+            // 
+            this.lblDailyTotal.AutoSize = true;
+            this.lblDailyTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblDailyTotal.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblDailyTotal.Location = new System.Drawing.Point(180, 69);
+            this.lblDailyTotal.Name = "lblDailyTotal";
+            this.lblDailyTotal.Size = new System.Drawing.Size(54, 20);
+            this.lblDailyTotal.TabIndex = 5;
+            this.lblDailyTotal.Text = "$0.00";
+            // 
+            // totalDailyLabel
+            // 
+            this.totalDailyLabel.AutoSize = true;
+            this.totalDailyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.totalDailyLabel.Location = new System.Drawing.Point(15, 69);
+            this.totalDailyLabel.Name = "totalDailyLabel";
+            this.totalDailyLabel.Size = new System.Drawing.Size(100, 20);
+            this.totalDailyLabel.TabIndex = 4;
+            this.totalDailyLabel.Text = "Daily Cost: ";
             // 
             // RentalForm
             // 
@@ -320,5 +345,7 @@ namespace Furniture4AllApp.Views
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblDailyTotal;
+        private System.Windows.Forms.Label totalDailyLabel;
     }
 }
