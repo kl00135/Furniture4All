@@ -41,7 +41,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnProcessReturn = new System.Windows.Forms.Button();
             this.lblService = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.gbMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnCart)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +108,7 @@
             this.gbMember.Controls.Add(this.lblMemberIdLabel);
             this.gbMember.Location = new System.Drawing.Point(16, 87);
             this.gbMember.Name = "gbMember";
-            this.gbMember.Size = new System.Drawing.Size(649, 67);
+            this.gbMember.Size = new System.Drawing.Size(649, 104);
             this.gbMember.TabIndex = 6;
             this.gbMember.TabStop = false;
             this.gbMember.Text = "Find Member Rentals";
@@ -127,7 +126,7 @@
             // 
             this.lblEmployee.AutoSize = true;
             this.lblEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblEmployee.Location = new System.Drawing.Point(19, 172);
+            this.lblEmployee.Location = new System.Drawing.Point(18, 227);
             this.lblEmployee.Name = "lblEmployee";
             this.lblEmployee.Size = new System.Drawing.Size(197, 15);
             this.lblEmployee.TabIndex = 7;
@@ -137,7 +136,7 @@
             // 
             this.dgvReturnCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReturnCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReturnCart.Location = new System.Drawing.Point(16, 190);
+            this.dgvReturnCart.Location = new System.Drawing.Point(15, 245);
             this.dgvReturnCart.Name = "dgvReturnCart";
             this.dgvReturnCart.Size = new System.Drawing.Size(649, 150);
             this.dgvReturnCart.TabIndex = 8;
@@ -147,7 +146,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(339, 464);
+            this.btnCancel.Location = new System.Drawing.Point(339, 425);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(160, 45);
             this.btnCancel.TabIndex = 12;
@@ -159,7 +158,7 @@
             this.btnProcessReturn.BackColor = System.Drawing.Color.Green;
             this.btnProcessReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnProcessReturn.ForeColor = System.Drawing.Color.White;
-            this.btnProcessReturn.Location = new System.Drawing.Point(154, 464);
+            this.btnProcessReturn.Location = new System.Drawing.Point(154, 425);
             this.btnProcessReturn.Name = "btnProcessReturn";
             this.btnProcessReturn.Size = new System.Drawing.Size(160, 45);
             this.btnProcessReturn.TabIndex = 11;
@@ -170,28 +169,17 @@
             // 
             this.lblService.AutoSize = true;
             this.lblService.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblService.Location = new System.Drawing.Point(13, 436);
+            this.lblService.Location = new System.Drawing.Point(11, 398);
             this.lblService.Name = "lblService";
             this.lblService.Size = new System.Drawing.Size(204, 15);
             this.lblService.TabIndex = 13;
             this.lblService.Text = "Service Employee:  [Employee]";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(19, 356);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 15);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Return Quantity for Selected Items: ";
             // 
             // ReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 521);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnProcessReturn);
@@ -227,6 +215,5 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnProcessReturn;
         private System.Windows.Forms.Label lblService;
-        private System.Windows.Forms.Label label1;
     }
 }

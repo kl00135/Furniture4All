@@ -265,6 +265,7 @@ namespace Furniture4AllApp.Views
             this.ReturnFurnitureButton.TabIndex = 19;
             this.ReturnFurnitureButton.Text = "Open";
             this.ReturnFurnitureButton.UseVisualStyleBackColor = false;
+            this.ReturnFurnitureButton.Click += new System.EventHandler(this.ReturnFurnitureButton_Click);
             // 
             // ReturnFurnitureLowerLabel
             // 

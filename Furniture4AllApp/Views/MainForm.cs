@@ -114,5 +114,11 @@ namespace Furniture4AllApp.Views
             RentalHistoryForm RHForm = new RentalHistoryForm(currentUser);
             RHForm.ShowDialog();
         }
+
+        private void ReturnFurnitureButton_Click(object sender, System.EventArgs e)
+        {
+            ReturnForm RForm = new ReturnForm(currentUser);
+            RForm.ShowDialog();
+        }
     }
 }
