@@ -38,14 +38,6 @@
             this.lblMemberInfo = new System.Windows.Forms.Label();
             this.lblEmployee = new System.Windows.Forms.Label();
             this.dgvReturnCart = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentalID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rented = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Due = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnProcessReturn = new System.Windows.Forms.Button();
             this.lblService = new System.Windows.Forms.Label();
@@ -145,67 +137,10 @@
             // 
             this.dgvReturnCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReturnCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReturnCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select,
-            this.RentalID,
-            this.ItemID,
-            this.Name,
-            this.Quantity,
-            this.Rate,
-            this.Rented,
-            this.Due});
             this.dgvReturnCart.Location = new System.Drawing.Point(16, 190);
             this.dgvReturnCart.Name = "dgvReturnCart";
             this.dgvReturnCart.Size = new System.Drawing.Size(649, 150);
             this.dgvReturnCart.TabIndex = 8;
-            // 
-            // Select
-            // 
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            // 
-            // RentalID
-            // 
-            this.RentalID.HeaderText = "Rental  ID";
-            this.RentalID.Name = "RentalID";
-            this.RentalID.ReadOnly = true;
-            // 
-            // ItemID
-            // 
-            this.ItemID.HeaderText = "Item ID";
-            this.ItemID.Name = "ItemID";
-            this.ItemID.ReadOnly = true;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Rate
-            // 
-            this.Rate.HeaderText = "Rate";
-            this.Rate.Name = "Rate";
-            this.Rate.ReadOnly = true;
-            // 
-            // Rented
-            // 
-            this.Rented.HeaderText = "Rented";
-            this.Rented.Name = "Rented";
-            this.Rented.ReadOnly = true;
-            // 
-            // Due
-            // 
-            this.Due.HeaderText = "Due";
-            this.Due.Name = "Due";
-            this.Due.ReadOnly = true;
             // 
             // btnCancel
             // 
@@ -249,7 +184,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(234, 15);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Return Quantity for Seletced Items: ";
+            this.label1.Text = "Return Quantity for Selected Items: ";
             // 
             // ReturnForm
             // 
@@ -268,6 +203,7 @@
             this.Controls.Add(this.lblAppTitle);
             this.Name = "ReturnForm";
             this.Text = "ReturnForm";
+            this.Load += new System.EventHandler(this.ReturnForm_Load);
             this.gbMember.ResumeLayout(false);
             this.gbMember.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnCart)).EndInit();
@@ -288,14 +224,6 @@
         private System.Windows.Forms.Label lblMemberInfo;
         private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.DataGridView dgvReturnCart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RentalID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rented;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Due;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnProcessReturn;
         private System.Windows.Forms.Label lblService;
