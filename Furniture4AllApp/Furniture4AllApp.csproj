@@ -56,6 +56,7 @@
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="DAL\FurnitureDAL.cs" />
     <Compile Include="DAL\MemberDAL.cs" />
+    <Compile Include="DAL\PasswordHasher.cs" />
     <Compile Include="DAL\RentalDAL.cs" />
     <Compile Include="DAL\ReportDAL.cs" />
     <Compile Include="DAL\ReturnDAL.cs" />

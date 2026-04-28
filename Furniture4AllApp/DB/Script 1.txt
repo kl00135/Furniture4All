@@ -107,10 +107,14 @@ CREATE TABLE ReturnLineItem (
 INSERT INTO Category (name) VALUES ('Chair'), ('Table'), ('Sofa');
 INSERT INTO Style (name) VALUES ('Modern'), ('Classic'), ('Rustic');
 
+-- Passwords are stored as SHA256 hashes.
+-- Login passwords (plain text):
+--   jdoe  -> hashed_pass_1
+--   admin -> hashed_pass_2
 INSERT INTO Employee (fname, lname, sex, date_of_birth, address, city, state, zip, phone, username, password_hash, is_admin)
-VALUES 
-('John', 'Doe', 'M', '1985-05-15', '123 Mulbury St', 'Atlanta', 'GA', '62563', '4045554178', 'jdoe', 'hashed_pass_1', 0),
-('Admin', 'User', 'F', '1990-01-01', '5257 Main St.', 'Atlanta', 'GA', '54785', '4045554217', 'admin', 'hashed_pass_2', 1)
+VALUES
+('John', 'Doe', 'M', '1985-05-15', '123 Mulbury St', 'Atlanta', 'GA', '62563', '4045554178', 'jdoe', 'c3b1218934fb26b6054ad457ce4f0ff818e31d6a145669552709c015fabe1af3', 0),
+('Admin', 'User', 'F', '1990-01-01', '5257 Main St.', 'Atlanta', 'GA', '54785', '4045554217', 'admin', '4b2db072421ec23e8ee33e852e252ece9227231e81ffd7b49822d51c83c98eaa', 1)
 
 INSERT INTO Member (fname, lname, sex, date_of_birth, address, city, state, zip, phone)
 VALUES 
