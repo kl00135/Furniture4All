@@ -56,6 +56,16 @@ namespace Furniture4AllApp.Controllers
         }
 
         /// <summary>
+        /// This method retrieves all return transactions for a given member.
+        /// </summary>
+        /// <param name="memberId">The member ID to look up.</param>
+        /// <returns>A list of ReturnTransaction objects with their line items.</returns>
+        public List<ReturnTransaction> GetReturnsByMemberId(int memberId)
+        {
+            return returnDAL.GetReturnsByMemberId(memberId);
+        }
+
+        /// <summary>
         /// This method will run the validation on a return transaction.
         /// </summary>
         private List<string> ValidateReturn(ReturnTransaction returnTxn)

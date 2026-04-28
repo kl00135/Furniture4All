@@ -1,12 +1,12 @@
 /// <summary>
-/// This is the windows design for the rental history form.
+/// This is the windows design for the return history form.
 ///
 /// Author: Anu Rayini
-/// Version: 4/13/2026
+/// Version: 4/27/2026
 /// </summary>
 namespace Furniture4AllApp
 {
-    partial class RentalHistoryForm
+    partial class ReturnHistoryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,6 @@ namespace Furniture4AllApp
             this.lblLineItemsTitle = new System.Windows.Forms.Label();
             this.dgvLineItems = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnViewReturnHistory = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
             this.grpSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
@@ -79,9 +78,9 @@ namespace Furniture4AllApp
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(12, 45);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(230, 24);
+            this.lblTitle.Size = new System.Drawing.Size(160, 24);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Rental / Return History";
+            this.lblTitle.Text = "Return History";
             //
             // grpSearch
             //
@@ -136,9 +135,9 @@ namespace Furniture4AllApp
             this.lblTransactionsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblTransactionsTitle.Location = new System.Drawing.Point(15, 165);
             this.lblTransactionsTitle.Name = "lblTransactionsTitle";
-            this.lblTransactionsTitle.Size = new System.Drawing.Size(155, 17);
+            this.lblTransactionsTitle.Size = new System.Drawing.Size(160, 17);
             this.lblTransactionsTitle.TabIndex = 4;
-            this.lblTransactionsTitle.Text = "Rental Transactions";
+            this.lblTransactionsTitle.Text = "Return Transactions";
             //
             // dgvTransactions
             //
@@ -160,9 +159,9 @@ namespace Furniture4AllApp
             this.lblLineItemsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblLineItemsTitle.Location = new System.Drawing.Point(15, 365);
             this.lblLineItemsTitle.Name = "lblLineItemsTitle";
-            this.lblLineItemsTitle.Size = new System.Drawing.Size(193, 17);
+            this.lblLineItemsTitle.Size = new System.Drawing.Size(207, 17);
             this.lblLineItemsTitle.TabIndex = 6;
-            this.lblLineItemsTitle.Text = "Line Items for Selected Rental";
+            this.lblLineItemsTitle.Text = "Line Items for Selected Return";
             //
             // dgvLineItems
             //
@@ -187,16 +186,6 @@ namespace Furniture4AllApp
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             //
-            // btnViewReturnHistory
-            //
-            this.btnViewReturnHistory.Location = new System.Drawing.Point(530, 560);
-            this.btnViewReturnHistory.Name = "btnViewReturnHistory";
-            this.btnViewReturnHistory.Size = new System.Drawing.Size(140, 30);
-            this.btnViewReturnHistory.TabIndex = 10;
-            this.btnViewReturnHistory.Text = "View Return History";
-            this.btnViewReturnHistory.UseVisualStyleBackColor = true;
-            this.btnViewReturnHistory.Click += new System.EventHandler(this.btnViewReturnHistory_Click);
-            //
             // lblStatus
             //
             this.lblStatus.Location = new System.Drawing.Point(110, 567);
@@ -205,13 +194,12 @@ namespace Furniture4AllApp
             this.lblStatus.TabIndex = 9;
             this.lblStatus.Text = "";
             //
-            // RentalHistoryForm
+            // ReturnHistoryForm
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 601);
             this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.btnViewReturnHistory);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvLineItems);
             this.Controls.Add(this.lblLineItemsTitle);
@@ -223,10 +211,10 @@ namespace Furniture4AllApp
             this.Controls.Add(this.lblAppTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "RentalHistoryForm";
+            this.Name = "ReturnHistoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Furniture4All - Rental / Return History";
-            this.Load += new System.EventHandler(this.RentalHistoryForm_Load);
+            this.Text = "Furniture4All - Return History";
+            this.Load += new System.EventHandler(this.ReturnHistoryForm_Load);
             this.grpSearch.ResumeLayout(false);
             this.grpSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
@@ -250,7 +238,6 @@ namespace Furniture4AllApp
         private System.Windows.Forms.Label lblLineItemsTitle;
         private System.Windows.Forms.DataGridView dgvLineItems;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnViewReturnHistory;
         private System.Windows.Forms.Label lblStatus;
     }
 }

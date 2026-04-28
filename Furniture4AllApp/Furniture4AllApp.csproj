@@ -110,6 +110,12 @@
     <Compile Include="Views\ReturnForm.Designer.cs">
       <DependentUpon>ReturnForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReturnHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReturnHistoryForm.Designer.cs">
+      <DependentUpon>ReturnHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReturnReceiptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReturnForm.resx">
       <DependentUpon>ReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReturnHistoryForm.resx">
+      <DependentUpon>ReturnHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Searcheditmemberform.resx">
       <DependentUpon>Searcheditmemberform.cs</DependentUpon>

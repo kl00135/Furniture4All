@@ -142,5 +142,87 @@ namespace Furniture4AllApp.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// This method will retrieve all return transactions for a given member.
+        /// Each transaction will include its line items with furniture names and rental transaction IDs.
+        /// </summary>
+        /// <param name="memberId">The member ID to look up.</param>
+        /// <returns>A list of ReturnTransaction objects with their line items.</returns>
+        public List<ReturnTransaction> GetReturnsByMemberId(int memberId)
+        {
+            List<ReturnTransaction> returns = new List<ReturnTransaction>();
+
+            using (SqlConnection conn = dbHelper.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"SELECT rt.return_transaction_id, rt.member_id, rt.employee_id,
+                        rt.return_date,
+                        m.fname + ' ' + m.lname AS member_name,
+                        e.fname + ' ' + e.lname AS employee_name
+                    FROM ReturnTransaction rt
+                    JOIN Member m ON rt.member_id = m.member_id
+                    JOIN Employee e ON rt.employee_id = e.employee_id
+                    WHERE rt.member_id = @member_id
+                    ORDER BY rt.return_date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@member_id", memberId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ReturnTransaction returnTxn = new ReturnTransaction
+                    {
+                        ReturnTransactionID = (int)reader["return_transaction_id"],
+                        MemberID = (int)reader["member_id"],
+                        MemberName = reader["member_name"].ToString(),
+                        EmployeeID = (int)reader["employee_id"],
+                        EmployeeName = reader["employee_name"].ToString(),
+                        ReturnDate = (DateTime)reader["return_date"]
+                    };
+                    returns.Add(returnTxn);
+                }
+                reader.Close();
+
+                foreach (ReturnTransaction returnTxn in returns)
+                {
+                    string lineQuery = @"SELECT rli.return_transaction_id, rli.rental_transaction_id,
+                            rli.furniture_id, f.name AS furniture_name,
+                            rli.quantity, rli.fine, rli.refund,
+                            f.daily_rental_rate, rt.due_date
+                        FROM ReturnLineItem rli
+                        JOIN Furniture f ON rli.furniture_id = f.furniture_id
+                        JOIN RentalTransaction rt ON rli.rental_transaction_id = rt.rental_transaction_id
+                        WHERE rli.return_transaction_id = @return_id";
+
+                    SqlCommand lineCmd = new SqlCommand(lineQuery, conn);
+                    lineCmd.Parameters.AddWithValue("@return_id", returnTxn.ReturnTransactionID);
+
+                    SqlDataReader lineReader = lineCmd.ExecuteReader();
+
+                    while (lineReader.Read())
+                    {
+                        returnTxn.LineItems.Add(new ReturnLineItem
+                        {
+                            ReturnTransactionID = (int)lineReader["return_transaction_id"],
+                            RentalTransactionID = (int)lineReader["rental_transaction_id"],
+                            FurnitureID = (int)lineReader["furniture_id"],
+                            FurnitureName = lineReader["furniture_name"].ToString(),
+                            Quantity = (int)lineReader["quantity"],
+                            Fine = (decimal)lineReader["fine"],
+                            Refund = (decimal)lineReader["refund"],
+                            DailyRate = (decimal)lineReader["daily_rental_rate"],
+                            DueDate = (DateTime)lineReader["due_date"]
+                        });
+                    }
+                    lineReader.Close();
+                }
+            }
+
+            return returns;
+        }
     }
 }
