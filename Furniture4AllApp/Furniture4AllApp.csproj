@@ -50,17 +50,20 @@
     <Compile Include="Controllers\FurnitureController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReturnController.cs" />
     <Compile Include="DAL\DBHelper.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="DAL\FurnitureDAL.cs" />
     <Compile Include="DAL\MemberDAL.cs" />
     <Compile Include="DAL\RentalDAL.cs" />
+    <Compile Include="DAL\ReportDAL.cs" />
     <Compile Include="DAL\ReturnDAL.cs" />
     <Compile Include="Models\ActiveRental.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Furniture.cs" />
+    <Compile Include="Models\FurnitureReportItem.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Rentallineitem.cs" />
     <Compile Include="Models\RentalTransaction.cs" />
@@ -122,6 +125,18 @@
     <Compile Include="Views\ReturnReceiptForm.Designer.cs">
       <DependentUpon>ReturnReceiptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MostRentedFurnitureControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MostRentedFurnitureControl.Designer.cs">
+      <DependentUpon>MostRentedFurnitureControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SearchFurnitureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReturnHistoryForm.resx">
       <DependentUpon>ReturnHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MostRentedFurnitureControl.resx">
+      <DependentUpon>MostRentedFurnitureControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Searcheditmemberform.resx">
       <DependentUpon>Searcheditmemberform.cs</DependentUpon>

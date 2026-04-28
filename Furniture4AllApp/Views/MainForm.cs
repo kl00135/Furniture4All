@@ -53,11 +53,25 @@ namespace Furniture4AllApp.Views
             if (currentUser.IsAdmin)
             {
                 RoleLabel.Text = "(Admin)";
+                ReportsLinkLabel.Visible = true;
             }
             else
             {
                 RoleLabel.Text = "(Employee)";
+                ReportsLinkLabel.Visible = false;
             }
+        }
+
+        /// <summary>
+        /// Handles the LinkClicked event of the ReportsLinkLabel control.
+        /// Only available for admin users.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="LinkLabelLinkClickedEventArgs"/> instance containing the event data.</param>
+        private void ReportsLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ReportForm RForm = new ReportForm(currentUser);
+            RForm.ShowDialog();
         }
 
         /// <summary>

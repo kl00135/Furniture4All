@@ -35,6 +35,7 @@ namespace Furniture4AllApp.Views
         private void InitializeComponent()
         {
             this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.ReportsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.RoleLabel = new System.Windows.Forms.Label();
@@ -82,6 +83,19 @@ namespace Furniture4AllApp.Views
             this.LogoutLinkLabel.TabStop = true;
             this.LogoutLinkLabel.Text = "Logout";
             this.LogoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLinkLabel_LinkClicked);
+            //
+            // ReportsLinkLabel
+            //
+            this.ReportsLinkLabel.AutoSize = true;
+            this.ReportsLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportsLinkLabel.Location = new System.Drawing.Point(640, 56);
+            this.ReportsLinkLabel.Name = "ReportsLinkLabel";
+            this.ReportsLinkLabel.Size = new System.Drawing.Size(54, 16);
+            this.ReportsLinkLabel.TabIndex = 30;
+            this.ReportsLinkLabel.TabStop = true;
+            this.ReportsLinkLabel.Text = "Reports";
+            this.ReportsLinkLabel.Visible = false;
+            this.ReportsLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ReportsLinkLabel_LinkClicked);
             // 
             // LoggedInAsLabel
             // 
@@ -403,6 +417,7 @@ namespace Furniture4AllApp.Views
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.LoggedInAsLabel);
             this.Controls.Add(this.LogoutLinkLabel);
+            this.Controls.Add(this.ReportsLinkLabel);
             this.Controls.Add(this.RegisterMemberBackgroundBox);
             this.Controls.Add(this.SearchEditMemberBackgroundBox);
             this.Controls.Add(this.RentFurnitureBackgroundBox);
@@ -431,6 +446,7 @@ namespace Furniture4AllApp.Views
         #endregion
 
         private System.Windows.Forms.LinkLabel LogoutLinkLabel;
+        private System.Windows.Forms.LinkLabel ReportsLinkLabel;
         private System.Windows.Forms.Label LoggedInAsLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label RoleLabel;
