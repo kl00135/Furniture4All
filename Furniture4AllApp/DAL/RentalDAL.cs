@@ -54,7 +54,7 @@ namespace Furniture4AllApp.DAL
 
                         foreach (RentalLineItem item in rental.LineItems)
                         {
-                            string checkQuery = @"SELECT stock_quantity FROM Furniture WHERE furniture_id = @furniture_id";
+                            string checkQuery = @"SELECT quantity FROM Furniture WHERE furniture_id = @furniture_id";
                             SqlCommand checkCmd = new SqlCommand(checkQuery, conn, txn);
                             checkCmd.Parameters.AddWithValue("@furniture_id", item.FurnitureID);
 
@@ -76,7 +76,7 @@ namespace Furniture4AllApp.DAL
                             childCmd.ExecuteNonQuery();
 
                             string updateStockQuery = @"UPDATE Furniture
-                                SET stock_quantity = stock_quantity - @qty
+                                SET quantity = quantity - @qty
                                 WHERE furniture_id = @furniture_id";
                             
                             SqlCommand updateStockCmd = new SqlCommand(updateStockQuery, conn, txn);

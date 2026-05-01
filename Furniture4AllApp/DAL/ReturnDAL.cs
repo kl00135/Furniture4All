@@ -128,6 +128,15 @@ namespace Furniture4AllApp.DAL
                             updateCmd.Parameters.AddWithValue("@rental_id", item.RentalTransactionID);
                             updateCmd.Parameters.AddWithValue("@furniture_id", item.FurnitureID);
                             updateCmd.ExecuteNonQuery();
+
+                            string restockQuery = @"UPDATE Furniture
+                                SET quantity = quantity + @qty
+                                WHERE furniture_id = @furniture_id";
+
+                            SqlCommand restockCmd = new SqlCommand(restockQuery, conn, txn);
+                            restockCmd.Parameters.AddWithValue("@qty", item.Quantity);
+                            restockCmd.Parameters.AddWithValue("@furniture_id", item.FurnitureID);
+                            restockCmd.ExecuteNonQuery();
                         }
 
 

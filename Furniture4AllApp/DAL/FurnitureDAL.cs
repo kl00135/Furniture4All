@@ -228,4 +228,5 @@ namespace Furniture4AllApp.DAL
                 cmd.ExecuteNonQuery();
             }
         }
+    }
 }
