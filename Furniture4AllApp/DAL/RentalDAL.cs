@@ -21,6 +21,7 @@ namespace Furniture4AllApp.DAL
     public class RentalDAL
     {
         private DBHelper dbHelper = new DBHelper();
+        private FurnitureDAL furnitureDAL = new FurnitureDAL();
 
         /// <summary>
         /// This method will create a new rental transaction along with all of its line
@@ -53,6 +54,17 @@ namespace Furniture4AllApp.DAL
 
                         foreach (RentalLineItem item in rental.LineItems)
                         {
+                            string checkQuery = @"SELECT stock_quantity FROM Furniture WHERE furniture_id = @furniture_id";
+                            SqlCommand checkCmd = new SqlCommand(checkQuery, conn, txn);
+                            checkCmd.Parameters.AddWithValue("@furniture_id", item.FurnitureID);
+
+                            int currentStock = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                            if(currentStock < item.Quantity)
+                            {
+                                throw new Exception($"Not enough stock for furniture ID {item.FurnitureID}. Available: {currentStock}, Requested: {item.Quantity}");
+                            }
+
                             string childQuery = @"INSERT INTO RentalLineItem
                                 (rental_transaction_id, furniture_id, quantity, quantity_returned)
                                 VALUES (@rental_id, @furniture_id, @qty, 0)";
@@ -62,6 +74,15 @@ namespace Furniture4AllApp.DAL
                             childCmd.Parameters.AddWithValue("@furniture_id", item.FurnitureID);
                             childCmd.Parameters.AddWithValue("@qty", item.Quantity);
                             childCmd.ExecuteNonQuery();
+
+                            string updateStockQuery = @"UPDATE Furniture
+                                SET stock_quantity = stock_quantity - @qty
+                                WHERE furniture_id = @furniture_id";
+                            
+                            SqlCommand updateStockCmd = new SqlCommand(updateStockQuery, conn, txn);
+                            updateStockCmd.Parameters.AddWithValue("@qty", item.Quantity);
+                            updateStockCmd.Parameters.AddWithValue("@furniture_id", item.FurnitureID);
+                            updateStockCmd.ExecuteNonQuery();
                         }
 
                         txn.Commit();

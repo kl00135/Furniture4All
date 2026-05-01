@@ -187,5 +187,45 @@ namespace Furniture4AllApp.DAL
                 Quantity = (int)reader["quantity"]
             };
         }
-    }
+
+        /// <summary>
+        /// Decreases the furniture quantity.
+        /// </summary>
+        /// <param name="furnitureId">The furniture identifier.</param>
+        /// <param name="amount">The amount.</param>
+        public void DecreaseFurnitureQuantity(int furnitureId, int amount)
+        {
+            using (SqlConnection conn = dbHelper.GetConnection())
+            {
+                conn.Open();
+                string query = @"UPDATE Furniture
+                    SET quantity = quantity - @amount
+                    WHERE furniture_id = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@amount", amount);
+                cmd.Parameters.AddWithValue("@id", furnitureId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+        /// <summary>
+        /// Increases the furniture quantity.
+        /// </summary>
+        /// <param name="furnitureId">The furniture identifier.</param>
+        /// <param name="amount">The amount.</param>
+        public void IncreaseFurnitureQuantity(int furnitureId, int amount)
+        {
+            using (SqlConnection conn = dbHelper.GetConnection())
+            {
+                conn.Open();
+                string query = @"UPDATE Furniture
+                    SET quantity = quantity + @amount
+                    WHERE furniture_id = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@amount", amount);
+                cmd.Parameters.AddWithValue("@id", furnitureId);
+                cmd.ExecuteNonQuery();
+            }
+        }
 }
