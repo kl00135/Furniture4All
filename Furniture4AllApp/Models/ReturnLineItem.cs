@@ -37,9 +37,9 @@ namespace Furniture4AllApp.Models
         {
             int daysDiff = (DueDate.Date - returnDate.Date).Days;
 
-            if (daysDiff > 0)
+            if (daysDiff >= 0)
             {
-                Refund = DailyRate * Quantity * daysDiff;
+                Refund = DailyRate * Quantity * (daysDiff + 1);
                 Fine = 0;
             }
             else if (daysDiff < 0)
