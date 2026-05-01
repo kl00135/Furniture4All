@@ -19,7 +19,7 @@ namespace Furniture4AllApp.DAL
         /// <returns>The Employee if credentials match, otherwise null.</returns>
         public Employee GetEmployee(string username, string password)
         {
-            string hashed = PasswordHasher.Hash(password);
+            string hashed = password;            //PasswordHasher.Hash(password);
 
             using (SqlConnection conn = dbHelper.GetConnection()) {
                 conn.Open();
