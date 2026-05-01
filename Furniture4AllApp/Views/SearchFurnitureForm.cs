@@ -173,6 +173,15 @@ namespace Furniture4AllApp
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
             if (dgvResults.Columns[e.ColumnIndex].Name != "AddToCart") return;
 
+            int currentQty = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells["Quantity"].Value);
+
+            if(currentQty <= 0)
+            {
+                lblStatus.ForeColor = Color.Red;
+                lblStatus.Text = "Cannot add to cart. Item is out of stock.";
+                return;
+            }
+
             object idValue = dgvResults.Rows[e.RowIndex].Cells["FurnitureID"].Value;
             if (idValue == null) return;
             int furnitureId = Convert.ToInt32(idValue);
@@ -189,21 +198,15 @@ namespace Furniture4AllApp
             if (existing != null)
             {
                 existing.Quantity++;
-                lblStatus.ForeColor = Color.Green;
-                lblStatus.Text = $"Increased quantity for {item.Name} (now {existing.Quantity}).";
             }
             else
             {
-                cart.Add(new CartItem
-                {
-                    FurnitureId = item.FurnitureID,
-                    Name = item.Name,
-                    DailyRate = item.DailyRentalRate,
-                    Quantity = 1
-                });
-                lblStatus.ForeColor = Color.Green;
-                lblStatus.Text = $"Added {item.Name} to cart.";
+                cart.Add(new CartItem { FurnitureId = item.FurnitureID, Name = item.Name, DailyRate = item.DailyRentalRate, Quantity = 1 });
             }
+            dgvResults.Rows[e.RowIndex].Cells["Quantity"].Value = currentQty - 1;
+
+            lblStatus.ForeColor = Color.Green;
+            lblStatus.Text = $"Added {item.Name} to cart. Remaining stock: {currentQty - 1}";
         }
 
         /// <summary>
