@@ -38,8 +38,16 @@ namespace Furniture4AllApp
 
             if (emp != null)
             {
-                MainForm main = new MainForm(emp);
-                main.Show();
+                if (emp.IsAdmin)
+                {
+                    AdminDashboardForm admin = new AdminDashboardForm(emp);
+                    admin.Show();
+                }
+                else
+                {
+                    MainForm main = new MainForm(emp);
+                    main.Show();
+                }
                 this.Hide();
             }
             else
