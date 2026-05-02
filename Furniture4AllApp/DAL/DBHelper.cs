@@ -8,7 +8,7 @@ namespace Furniture4AllApp.DAL
     /// </summary>
     public class DBHelper
     {
-        private string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=sqldb-uwg-cs-dev-eu2-01-cs6232-g2;Trusted_Connection=True;";
+        private string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=Furniture4All;Trusted_Connection=True;";
 
         /// <summary>
         /// Gets the connection.
