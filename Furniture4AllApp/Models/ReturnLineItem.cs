@@ -39,7 +39,7 @@ namespace Furniture4AllApp.Models
 
             if (daysDiff >= 0)
             {
-                Refund = DailyRate * Quantity * (daysDiff + 1);
+                Refund = DailyRate * Quantity * daysDiff;
                 Fine = 0;
             }
             else if (daysDiff < 0)
