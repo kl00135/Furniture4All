@@ -216,6 +216,8 @@ namespace Furniture4AllApp.Views
         /// </summary>
         private void RefreshCartGrid()
         {
+            int selectedRowIndex = dgvCart.CurrentCell?.RowIndex ?? -1;
+
             dgvCart.Rows.Clear();
 
             foreach (var item in cartItems)
@@ -229,11 +231,14 @@ namespace Furniture4AllApp.Views
                 );
             }
 
-            //Code is here to fix flickering effect when refreshing
-            int selectedRow = dgvCart.CurrentCell?.RowIndex ?? -1;
-            if (selectedRow >= 0 && selectedRow < dgvCart.Rows.Count)
+            //Code is here to fix flickering effect when refreshing - Kade Levy
+            if (selectedRowIndex >= 0 && selectedRowIndex < dgvCart.Rows.Count)
             {
-                dgvCart.Rows[selectedRow].Selected = true;
+                dgvCart.CurrentCell = dgvCart.Rows[selectedRowIndex].Cells[0];
+            }
+            else if (dgvCart.Rows.Count > 0 && selectedRowIndex >= dgvCart.Rows.Count)
+            {
+                dgvCart.CurrentCell = dgvCart.Rows[dgvCart.Rows.Count - 1].Cells[0];
             }
 
             UpdateTotal();
