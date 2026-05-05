@@ -47,6 +47,8 @@ namespace Furniture4AllApp.Views
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.btnAddFurniture = new System.Windows.Forms.Button();
             this.gbCart = new System.Windows.Forms.GroupBox();
+            this.lblDailyTotal = new System.Windows.Forms.Label();
+            this.totalDailyLabel = new System.Windows.Forms.Label();
             this.lblTotalCost = new System.Windows.Forms.Label();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@ namespace Furniture4AllApp.Views
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.lblDailyTotal = new System.Windows.Forms.Label();
-            this.totalDailyLabel = new System.Windows.Forms.Label();
             this.gbMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.gbCart.SuspendLayout();
@@ -197,6 +197,27 @@ namespace Furniture4AllApp.Views
             this.gbCart.TabStop = false;
             this.gbCart.Text = "Order Summary";
             // 
+            // lblDailyTotal
+            // 
+            this.lblDailyTotal.AutoSize = true;
+            this.lblDailyTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblDailyTotal.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblDailyTotal.Location = new System.Drawing.Point(180, 69);
+            this.lblDailyTotal.Name = "lblDailyTotal";
+            this.lblDailyTotal.Size = new System.Drawing.Size(54, 20);
+            this.lblDailyTotal.TabIndex = 5;
+            this.lblDailyTotal.Text = "$0.00";
+            // 
+            // totalDailyLabel
+            // 
+            this.totalDailyLabel.AutoSize = true;
+            this.totalDailyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.totalDailyLabel.Location = new System.Drawing.Point(15, 69);
+            this.totalDailyLabel.Name = "totalDailyLabel";
+            this.totalDailyLabel.Size = new System.Drawing.Size(100, 20);
+            this.totalDailyLabel.TabIndex = 4;
+            this.totalDailyLabel.Text = "Daily Cost: ";
+            // 
             // lblTotalCost
             // 
             this.lblTotalCost.AutoSize = true;
@@ -215,6 +236,7 @@ namespace Furniture4AllApp.Views
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(150, 20);
             this.dtpDueDate.TabIndex = 1;
+            this.dtpDueDate.ValueChanged += new System.EventHandler(this.dtpDueDate_ValueChanged);
             // 
             // totalLabel
             // 
@@ -268,27 +290,6 @@ namespace Furniture4AllApp.Views
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(555, 35);
             this.lblStatus.TabIndex = 11;
-            // 
-            // lblDailyTotal
-            // 
-            this.lblDailyTotal.AutoSize = true;
-            this.lblDailyTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDailyTotal.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblDailyTotal.Location = new System.Drawing.Point(180, 69);
-            this.lblDailyTotal.Name = "lblDailyTotal";
-            this.lblDailyTotal.Size = new System.Drawing.Size(54, 20);
-            this.lblDailyTotal.TabIndex = 5;
-            this.lblDailyTotal.Text = "$0.00";
-            // 
-            // totalDailyLabel
-            // 
-            this.totalDailyLabel.AutoSize = true;
-            this.totalDailyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.totalDailyLabel.Location = new System.Drawing.Point(15, 69);
-            this.totalDailyLabel.Name = "totalDailyLabel";
-            this.totalDailyLabel.Size = new System.Drawing.Size(100, 20);
-            this.totalDailyLabel.TabIndex = 4;
-            this.totalDailyLabel.Text = "Daily Cost: ";
             // 
             // RentalForm
             // 

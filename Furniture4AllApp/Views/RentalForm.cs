@@ -212,6 +212,16 @@ namespace Furniture4AllApp.Views
         }
 
         /// <summary>
+        /// Handles the ValueChanged event of the dtpDueDate control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void dtpDueDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTotal();
+        }
+
+        /// <summary>
         /// Refreshes the cart grid.
         /// </summary>
         private void RefreshCartGrid()
