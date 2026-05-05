@@ -1,8 +1,8 @@
 /// <summary>
-/// This is the windows design for the Most Rented Furniture user control.
+/// This is the windows design for the Most Popular Furniture user control.
 ///
 /// Author: Anu Rayini
-/// Version: 4/27/2026
+/// Version: 5/2/2026
 /// </summary>
 namespace Furniture4AllApp.Views
 {
@@ -34,27 +34,29 @@ namespace Furniture4AllApp.Views
         private void InitializeComponent()
         {
             this.grpSummary = new System.Windows.Forms.GroupBox();
-            this.lblTotalRevenueValue = new System.Windows.Forms.Label();
-            this.lblTotalRevenue = new System.Windows.Forms.Label();
-            this.lblTotalQtyValue = new System.Windows.Forms.Label();
-            this.lblTotalQty = new System.Windows.Forms.Label();
-            this.lblTotalItemsValue = new System.Windows.Forms.Label();
-            this.lblTotalItems = new System.Windows.Forms.Label();
+            this.lblQualifiedItemsValue = new System.Windows.Forms.Label();
+            this.lblQualifiedItems = new System.Windows.Forms.Label();
+            this.lblTotalTransValue = new System.Windows.Forms.Label();
+            this.lblTotalTrans = new System.Windows.Forms.Label();
+            this.lblDateRangeValue = new System.Windows.Forms.Label();
+            this.lblDateRange = new System.Windows.Forms.Label();
             this.lblResultsTitle = new System.Windows.Forms.Label();
+            this.lblResultsSubtitle = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.lblNoData = new System.Windows.Forms.Label();
+            this.lblColumnDescriptions = new System.Windows.Forms.Label();
             this.grpSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             this.SuspendLayout();
             //
             // grpSummary
             //
-            this.grpSummary.Controls.Add(this.lblTotalRevenueValue);
-            this.grpSummary.Controls.Add(this.lblTotalRevenue);
-            this.grpSummary.Controls.Add(this.lblTotalQtyValue);
-            this.grpSummary.Controls.Add(this.lblTotalQty);
-            this.grpSummary.Controls.Add(this.lblTotalItemsValue);
-            this.grpSummary.Controls.Add(this.lblTotalItems);
+            this.grpSummary.Controls.Add(this.lblQualifiedItemsValue);
+            this.grpSummary.Controls.Add(this.lblQualifiedItems);
+            this.grpSummary.Controls.Add(this.lblTotalTransValue);
+            this.grpSummary.Controls.Add(this.lblTotalTrans);
+            this.grpSummary.Controls.Add(this.lblDateRangeValue);
+            this.grpSummary.Controls.Add(this.lblDateRange);
             this.grpSummary.Location = new System.Drawing.Point(0, 0);
             this.grpSummary.Name = "grpSummary";
             this.grpSummary.Size = new System.Drawing.Size(745, 70);
@@ -62,62 +64,62 @@ namespace Furniture4AllApp.Views
             this.grpSummary.TabStop = false;
             this.grpSummary.Text = "Summary";
             //
-            // lblTotalItems
+            // lblDateRange
             //
-            this.lblTotalItems.AutoSize = true;
-            this.lblTotalItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTotalItems.Location = new System.Drawing.Point(15, 30);
-            this.lblTotalItems.Name = "lblTotalItems";
-            this.lblTotalItems.Size = new System.Drawing.Size(110, 15);
-            this.lblTotalItems.TabIndex = 0;
-            this.lblTotalItems.Text = "Unique Items:";
+            this.lblDateRange.AutoSize = true;
+            this.lblDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblDateRange.Location = new System.Drawing.Point(15, 30);
+            this.lblDateRange.Name = "lblDateRange";
+            this.lblDateRange.Size = new System.Drawing.Size(95, 15);
+            this.lblDateRange.TabIndex = 0;
+            this.lblDateRange.Text = "Date Range:";
             //
-            // lblTotalItemsValue
+            // lblDateRangeValue
             //
-            this.lblTotalItemsValue.AutoSize = true;
-            this.lblTotalItemsValue.Location = new System.Drawing.Point(135, 31);
-            this.lblTotalItemsValue.Name = "lblTotalItemsValue";
-            this.lblTotalItemsValue.Size = new System.Drawing.Size(13, 13);
-            this.lblTotalItemsValue.TabIndex = 1;
-            this.lblTotalItemsValue.Text = "0";
+            this.lblDateRangeValue.AutoSize = true;
+            this.lblDateRangeValue.Location = new System.Drawing.Point(115, 31);
+            this.lblDateRangeValue.Name = "lblDateRangeValue";
+            this.lblDateRangeValue.Size = new System.Drawing.Size(13, 13);
+            this.lblDateRangeValue.TabIndex = 1;
+            this.lblDateRangeValue.Text = "-";
             //
-            // lblTotalQty
+            // lblTotalTrans
             //
-            this.lblTotalQty.AutoSize = true;
-            this.lblTotalQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTotalQty.Location = new System.Drawing.Point(220, 30);
-            this.lblTotalQty.Name = "lblTotalQty";
-            this.lblTotalQty.Size = new System.Drawing.Size(110, 15);
-            this.lblTotalQty.TabIndex = 2;
-            this.lblTotalQty.Text = "Total Qty Rented:";
+            this.lblTotalTrans.AutoSize = true;
+            this.lblTotalTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTotalTrans.Location = new System.Drawing.Point(295, 30);
+            this.lblTotalTrans.Name = "lblTotalTrans";
+            this.lblTotalTrans.Size = new System.Drawing.Size(135, 15);
+            this.lblTotalTrans.TabIndex = 2;
+            this.lblTotalTrans.Text = "Total Transactions:";
             //
-            // lblTotalQtyValue
+            // lblTotalTransValue
             //
-            this.lblTotalQtyValue.AutoSize = true;
-            this.lblTotalQtyValue.Location = new System.Drawing.Point(340, 31);
-            this.lblTotalQtyValue.Name = "lblTotalQtyValue";
-            this.lblTotalQtyValue.Size = new System.Drawing.Size(13, 13);
-            this.lblTotalQtyValue.TabIndex = 3;
-            this.lblTotalQtyValue.Text = "0";
+            this.lblTotalTransValue.AutoSize = true;
+            this.lblTotalTransValue.Location = new System.Drawing.Point(430, 31);
+            this.lblTotalTransValue.Name = "lblTotalTransValue";
+            this.lblTotalTransValue.Size = new System.Drawing.Size(13, 13);
+            this.lblTotalTransValue.TabIndex = 3;
+            this.lblTotalTransValue.Text = "0";
             //
-            // lblTotalRevenue
+            // lblQualifiedItems
             //
-            this.lblTotalRevenue.AutoSize = true;
-            this.lblTotalRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTotalRevenue.Location = new System.Drawing.Point(440, 30);
-            this.lblTotalRevenue.Name = "lblTotalRevenue";
-            this.lblTotalRevenue.Size = new System.Drawing.Size(140, 15);
-            this.lblTotalRevenue.TabIndex = 4;
-            this.lblTotalRevenue.Text = "Estimated Revenue:";
+            this.lblQualifiedItems.AutoSize = true;
+            this.lblQualifiedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblQualifiedItems.Location = new System.Drawing.Point(490, 30);
+            this.lblQualifiedItems.Name = "lblQualifiedItems";
+            this.lblQualifiedItems.Size = new System.Drawing.Size(125, 15);
+            this.lblQualifiedItems.TabIndex = 4;
+            this.lblQualifiedItems.Text = "Qualified Items:";
             //
-            // lblTotalRevenueValue
+            // lblQualifiedItemsValue
             //
-            this.lblTotalRevenueValue.AutoSize = true;
-            this.lblTotalRevenueValue.Location = new System.Drawing.Point(580, 31);
-            this.lblTotalRevenueValue.Name = "lblTotalRevenueValue";
-            this.lblTotalRevenueValue.Size = new System.Drawing.Size(34, 13);
-            this.lblTotalRevenueValue.TabIndex = 5;
-            this.lblTotalRevenueValue.Text = "$0.00";
+            this.lblQualifiedItemsValue.AutoSize = true;
+            this.lblQualifiedItemsValue.Location = new System.Drawing.Point(615, 31);
+            this.lblQualifiedItemsValue.Name = "lblQualifiedItemsValue";
+            this.lblQualifiedItemsValue.Size = new System.Drawing.Size(13, 13);
+            this.lblQualifiedItemsValue.TabIndex = 5;
+            this.lblQualifiedItemsValue.Text = "0";
             //
             // lblResultsTitle
             //
@@ -125,9 +127,20 @@ namespace Furniture4AllApp.Views
             this.lblResultsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblResultsTitle.Location = new System.Drawing.Point(0, 85);
             this.lblResultsTitle.Name = "lblResultsTitle";
-            this.lblResultsTitle.Size = new System.Drawing.Size(225, 17);
+            this.lblResultsTitle.Size = new System.Drawing.Size(295, 17);
             this.lblResultsTitle.TabIndex = 1;
-            this.lblResultsTitle.Text = "Most Rented Furniture";
+            this.lblResultsTitle.Text = "Results (rented in 2+ transactions):";
+            //
+            // lblResultsSubtitle
+            //
+            this.lblResultsSubtitle.AutoSize = true;
+            this.lblResultsSubtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.lblResultsSubtitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblResultsSubtitle.Location = new System.Drawing.Point(0, 105);
+            this.lblResultsSubtitle.Name = "lblResultsSubtitle";
+            this.lblResultsSubtitle.Size = new System.Drawing.Size(285, 13);
+            this.lblResultsSubtitle.TabIndex = 6;
+            this.lblResultsSubtitle.Text = "Sorted by most rented to least; ties broken by ID descending";
             //
             // dgvReport
             //
@@ -135,11 +148,11 @@ namespace Furniture4AllApp.Views
             this.dgvReport.AllowUserToDeleteRows = false;
             this.dgvReport.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReport.Location = new System.Drawing.Point(0, 110);
+            this.dgvReport.Location = new System.Drawing.Point(0, 125);
             this.dgvReport.Name = "dgvReport";
             this.dgvReport.ReadOnly = true;
             this.dgvReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReport.Size = new System.Drawing.Size(745, 280);
+            this.dgvReport.Size = new System.Drawing.Size(745, 200);
             this.dgvReport.TabIndex = 2;
             //
             // lblNoData
@@ -148,20 +161,35 @@ namespace Furniture4AllApp.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNoData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
             this.lblNoData.ForeColor = System.Drawing.Color.Gray;
-            this.lblNoData.Location = new System.Drawing.Point(0, 220);
+            this.lblNoData.Location = new System.Drawing.Point(0, 215);
             this.lblNoData.Name = "lblNoData";
             this.lblNoData.Size = new System.Drawing.Size(745, 25);
             this.lblNoData.TabIndex = 3;
-            this.lblNoData.Text = "No rental data found for the selected date range.";
+            this.lblNoData.Text = "No furniture was rented in 2+ transactions during this period.";
             this.lblNoData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblNoData.Visible = false;
+            //
+            // lblColumnDescriptions
+            //
+            this.lblColumnDescriptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.lblColumnDescriptions.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblColumnDescriptions.Location = new System.Drawing.Point(0, 335);
+            this.lblColumnDescriptions.Name = "lblColumnDescriptions";
+            this.lblColumnDescriptions.Size = new System.Drawing.Size(745, 60);
+            this.lblColumnDescriptions.TabIndex = 4;
+            this.lblColumnDescriptions.Text = "# Rentals = number of rental transactions containing this furniture during the period\r\n" +
+                "% Rentals = (# Rentals / Total Transactions) x 100\r\n" +
+                "% Age 18-29 = percentage of renters aged 18-29 (at time of rental) among all renters of this item\r\n" +
+                "% Other = percentage of renters outside 18-29 age range";
             //
             // MostRentedFurnitureControl
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblColumnDescriptions);
             this.Controls.Add(this.lblNoData);
             this.Controls.Add(this.dgvReport);
+            this.Controls.Add(this.lblResultsSubtitle);
             this.Controls.Add(this.lblResultsTitle);
             this.Controls.Add(this.grpSummary);
             this.Name = "MostRentedFurnitureControl";
@@ -176,14 +204,16 @@ namespace Furniture4AllApp.Views
         #endregion
 
         private System.Windows.Forms.GroupBox grpSummary;
-        private System.Windows.Forms.Label lblTotalRevenueValue;
-        private System.Windows.Forms.Label lblTotalRevenue;
-        private System.Windows.Forms.Label lblTotalQtyValue;
-        private System.Windows.Forms.Label lblTotalQty;
-        private System.Windows.Forms.Label lblTotalItemsValue;
-        private System.Windows.Forms.Label lblTotalItems;
+        private System.Windows.Forms.Label lblQualifiedItemsValue;
+        private System.Windows.Forms.Label lblQualifiedItems;
+        private System.Windows.Forms.Label lblTotalTransValue;
+        private System.Windows.Forms.Label lblTotalTrans;
+        private System.Windows.Forms.Label lblDateRangeValue;
+        private System.Windows.Forms.Label lblDateRange;
         private System.Windows.Forms.Label lblResultsTitle;
+        private System.Windows.Forms.Label lblResultsSubtitle;
         private System.Windows.Forms.DataGridView dgvReport;
         private System.Windows.Forms.Label lblNoData;
+        private System.Windows.Forms.Label lblColumnDescriptions;
     }
 }

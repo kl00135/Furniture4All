@@ -1,16 +1,17 @@
 /// <summary>
-/// This file represents a single row in the Most Rented Furniture report.
-/// Each row contains aggregate rental info for one furniture item over a date range.
+/// This file represents a single row in the Most Popular Furniture During Dates report.
+/// Each row contains aggregate rental info for one furniture item over a date range,
+/// including age demographics for the members who rented it.
 ///
 /// Author: Anu Rayini
-/// Version: 4/27/2026
+/// Version: 5/2/2026
 /// </summary>
 
 namespace Furniture4AllApp.Models
 {
     /// <summary>
     /// This class represents one furniture item's aggregated rental statistics
-    /// over a given date range. Used by the admin report.
+    /// for the admin "Most Popular Furniture During Dates" report.
     /// </summary>
     public class FurnitureReportItem
     {
@@ -20,34 +21,41 @@ namespace Furniture4AllApp.Models
         public int FurnitureID { get; set; }
 
         /// <summary>
+        /// The category name (e.g. Chair, Table, Sofa).
+        /// </summary>
+        public string Category { get; set; }
+
+        /// <summary>
         /// The furniture name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// The category of the furniture.
+        /// The number of rental transactions in which this furniture was rented during the period.
         /// </summary>
-        public string Category { get; set; }
+        public int RentalCount { get; set; }
 
         /// <summary>
-        /// The total quantity of this item rented in the date range.
+        /// The total number of all furniture rental transactions during the period.
+        /// Same value across all rows in the report.
         /// </summary>
-        public int TotalQuantityRented { get; set; }
+        public int TotalRentalCount { get; set; }
 
         /// <summary>
-        /// The number of distinct rental transactions that included this item.
+        /// The percentage of RentalCount over TotalRentalCount.
         /// </summary>
-        public int TransactionCount { get; set; }
+        public decimal PercentRentals { get; set; }
 
         /// <summary>
-        /// The daily rental rate for this furniture.
+        /// The percentage of members aged 18-29 (at the time of rental) who rented this item,
+        /// among all members who rented this item during the period.
         /// </summary>
-        public decimal DailyRate { get; set; }
+        public decimal PercentAge1829 { get; set; }
 
         /// <summary>
-        /// Estimated total revenue for this item over the date range
-        /// (quantity * daily rate * rental days).
+        /// The percentage of members outside the 18-29 age range (at the time of rental)
+        /// who rented this item, among all members who rented this item during the period.
         /// </summary>
-        public decimal EstimatedRevenue { get; set; }
+        public decimal PercentAgeOther { get; set; }
     }
 }
