@@ -1,10 +1,11 @@
 /// <summary>
 /// This file is the admin Reports form. It hosts the MostRentedFurnitureControl
-/// user control and provides date range filters for running the report.
-/// Only admins can access this form (enforced by MainForm hiding the button).
+/// user control and provides date range filters for running the
+/// Most Popular Furniture During Dates report.
+/// Only admins can access this form (enforced by AdminDashboardForm).
 ///
 /// Author: Anu Rayini
-/// Version: 4/27/2026
+/// Version: 5/2/2026
 /// </summary>
 
 using System;
@@ -17,8 +18,8 @@ using Furniture4AllApp.Models;
 namespace Furniture4AllApp.Views
 {
     /// <summary>
-    /// Admin-only form for running reports. Hosts the MostRentedFurnitureControl
-    /// user control which renders the report data.
+    /// Admin-only form for running the Most Popular Furniture During Dates report.
+    /// Hosts the MostRentedFurnitureControl user control which renders the report data.
     /// </summary>
     public partial class ReportForm : Form
     {
@@ -61,8 +62,8 @@ namespace Furniture4AllApp.Views
                 DateTime startDate = dtpStartDate.Value.Date;
                 DateTime endDate = dtpEndDate.Value.Date;
 
-                List<FurnitureReportItem> data = reportController.GetMostRentedFurniture(startDate, endDate);
-                reportControl.DisplayReport(data);
+                List<FurnitureReportItem> data = reportController.GetMostPopularFurnitureDuringDates(startDate, endDate);
+                reportControl.DisplayReport(data, startDate, endDate);
 
                 lblStatus.ForeColor = Color.ForestGreen;
                 lblStatus.Text = $"Report generated for {startDate:MM/dd/yyyy} to {endDate:MM/dd/yyyy}.";

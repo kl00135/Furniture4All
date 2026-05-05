@@ -74,9 +74,9 @@ namespace Furniture4AllApp.Views
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(12, 45);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(225, 24);
+            this.lblTitle.Size = new System.Drawing.Size(450, 24);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Reports (Admin)";
+            this.lblTitle.Text = "Report: Most Popular Furniture During Dates";
             //
             // grpFilters
             //
@@ -90,7 +90,7 @@ namespace Furniture4AllApp.Views
             this.grpFilters.Size = new System.Drawing.Size(755, 70);
             this.grpFilters.TabIndex = 3;
             this.grpFilters.TabStop = false;
-            this.grpFilters.Text = "Date Range";
+            this.grpFilters.Text = "Report Parameters";
             //
             // lblStartDate
             //

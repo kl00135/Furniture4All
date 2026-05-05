@@ -1,23 +1,25 @@
 /// <summary>
-/// This file is the user control that renders the "Most Rented Furniture" report.
-/// It displays a summary section and a grid of furniture items with rental statistics.
+/// This file is the user control that renders the "Most Popular Furniture During Dates" report.
+/// It displays a header with date range info plus a grid of furniture items with rental
+/// statistics and member age demographics.
+///
 /// The user control is hosted inside ReportForm.
 ///
 /// Author: Anu Rayini
-/// Version: 4/27/2026
+/// Version: 5/2/2026
 /// </summary>
 
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using Furniture4AllApp.Models;
 
 namespace Furniture4AllApp.Views
 {
     /// <summary>
-    /// User control that displays the Most Rented Furniture report.
-    /// The hosting form passes in a list of FurnitureReportItem and the control
-    /// handles all the rendering (summary stats + grid).
+    /// User control that displays the Most Popular Furniture During Dates report.
+    /// The hosting form passes in a list of FurnitureReportItem and date range.
+    /// The control handles all the rendering.
     /// </summary>
     public partial class MostRentedFurnitureControl : UserControl
     {
@@ -42,21 +44,23 @@ namespace Furniture4AllApp.Views
             dgvReport.AllowUserToDeleteRows = false;
             dgvReport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            dgvReport.Columns.Add("FurnitureID", "ID");
-            dgvReport.Columns.Add("Name", "Name");
+            dgvReport.Columns.Add("FurnitureID", "Furn ID");
             dgvReport.Columns.Add("Category", "Category");
-            dgvReport.Columns.Add("DailyRate", "Daily Rate");
-            dgvReport.Columns.Add("TotalQty", "Total Qty Rented");
-            dgvReport.Columns.Add("TxnCount", "# Transactions");
-            dgvReport.Columns.Add("Revenue", "Estimated Revenue");
+            dgvReport.Columns.Add("Name", "Name");
+            dgvReport.Columns.Add("RentalCount", "# Rentals");
+            dgvReport.Columns.Add("TotalCount", "Total Trans");
+            dgvReport.Columns.Add("PercentRentals", "% Rentals");
+            dgvReport.Columns.Add("PercentAge1829", "% Age 18-29");
+            dgvReport.Columns.Add("PercentAgeOther", "% Other");
 
-            dgvReport.Columns["FurnitureID"].Width = 50;
+            dgvReport.Columns["FurnitureID"].Width = 60;
+            dgvReport.Columns["Category"].Width = 90;
             dgvReport.Columns["Name"].Width = 160;
-            dgvReport.Columns["Category"].Width = 100;
-            dgvReport.Columns["DailyRate"].Width = 90;
-            dgvReport.Columns["TotalQty"].Width = 110;
-            dgvReport.Columns["TxnCount"].Width = 100;
-            dgvReport.Columns["Revenue"].Width = 130;
+            dgvReport.Columns["RentalCount"].Width = 70;
+            dgvReport.Columns["TotalCount"].Width = 80;
+            dgvReport.Columns["PercentRentals"].Width = 80;
+            dgvReport.Columns["PercentAge1829"].Width = 90;
+            dgvReport.Columns["PercentAgeOther"].Width = 70;
         }
 
         /// <summary>
@@ -64,13 +68,14 @@ namespace Furniture4AllApp.Views
         /// Called by the hosting form after running the report query.
         /// </summary>
         /// <param name="items">The aggregated report rows.</param>
-        public void DisplayReport(List<FurnitureReportItem> items)
+        /// <param name="startDate">The start of the report date range.</param>
+        /// <param name="endDate">The end of the report date range.</param>
+        public void DisplayReport(List<FurnitureReportItem> items, DateTime startDate, DateTime endDate)
         {
             dgvReport.Rows.Clear();
 
-            int totalItems = 0;
-            int totalQty = 0;
-            decimal totalRevenue = 0;
+            int totalTrans = 0;
+            int qualifiedItems = 0;
 
             if (items != null)
             {
@@ -78,32 +83,25 @@ namespace Furniture4AllApp.Views
                 {
                     dgvReport.Rows.Add(
                         row.FurnitureID,
-                        row.Name,
                         row.Category,
-                        row.DailyRate.ToString("C2"),
-                        row.TotalQuantityRented,
-                        row.TransactionCount,
-                        row.EstimatedRevenue.ToString("C2")
+                        row.Name,
+                        row.RentalCount,
+                        row.TotalRentalCount,
+                        row.PercentRentals.ToString("F2") + "%",
+                        row.PercentAge1829.ToString("F2") + "%",
+                        row.PercentAgeOther.ToString("F2") + "%"
                     );
 
-                    totalItems++;
-                    totalQty += row.TotalQuantityRented;
-                    totalRevenue += row.EstimatedRevenue;
+                    qualifiedItems++;
+                    totalTrans = row.TotalRentalCount;
                 }
             }
 
-            lblTotalItemsValue.Text = totalItems.ToString();
-            lblTotalQtyValue.Text = totalQty.ToString();
-            lblTotalRevenueValue.Text = totalRevenue.ToString("C2");
+            lblDateRangeValue.Text = $"{startDate:MM/dd/yyyy} to {endDate:MM/dd/yyyy}";
+            lblTotalTransValue.Text = totalTrans.ToString();
+            lblQualifiedItemsValue.Text = qualifiedItems.ToString();
 
-            if (totalItems == 0)
-            {
-                lblNoData.Visible = true;
-            }
-            else
-            {
-                lblNoData.Visible = false;
-            }
+            lblNoData.Visible = qualifiedItems == 0;
         }
 
         /// <summary>
@@ -112,9 +110,9 @@ namespace Furniture4AllApp.Views
         public void ClearReport()
         {
             dgvReport.Rows.Clear();
-            lblTotalItemsValue.Text = "0";
-            lblTotalQtyValue.Text = "0";
-            lblTotalRevenueValue.Text = "$0.00";
+            lblDateRangeValue.Text = "-";
+            lblTotalTransValue.Text = "0";
+            lblQualifiedItemsValue.Text = "0";
             lblNoData.Visible = false;
         }
     }
